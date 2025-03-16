@@ -7,16 +7,21 @@ const editRequestModal = document.querySelector("#edit-request-modal");
 const deleteRequestConfirmModal = document.querySelector(
   "#delete-request-confirm-modal"
 );
-const deleteRequestConfirmModalBtns =
+const deleteRequestConfirmModalBtn =
   deleteRequestConfirmModal &&
-  deleteRequestConfirmModal.querySelectorAll("button");
-const deleteRequestBtns = document.querySelectorAll("[delete-request]");
+  deleteRequestConfirmModal.querySelector(".actions__delete");
+
+const deleteRequestDeclineModalBtn =
+  deleteRequestConfirmModal &&
+  deleteRequestConfirmModal.querySelector(".actions__cancel");
 
 const editCategoriesBtn = document.querySelector("[edit-categories]");
 const editCategoriesModal = document.querySelector("#edit-categories-modal");
 
 const declineBtns = document.querySelectorAll("[decline-request]");
 const declineRequestModal = document.querySelector("#decline-request-modal");
+
+const deleteRequestBtns = document.querySelectorAll("[delete-request]");
 
 editRequestModal &&
   editRequestModal.addEventListener("submit", async (event) => {
@@ -63,11 +68,31 @@ deleteCategoryBtns.forEach((btn) => {
   });
 });
 
-deleteRequestConfirmModalBtns &&
-  deleteRequestConfirmModalBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      closeModal(deleteRequestConfirmModal);
-    });
+deleteRequestConfirmModalBtn &&
+  deleteRequestConfirmModalBtn.addEventListener("click", async () => {
+    closeModal(deleteRequestConfirmModal);
+
+    const requestId = deleteRequestConfirmModal.dataset.requestId;
+
+    const response = await fetch(
+      `${SITE_URL}/api/admin/requests/${requestId}/delete`,
+      {
+        method: "DELETE",
+        body: JSON.stringify({
+          csrf: document.querySelector("meta[name=csrf]").content,
+        }),
+      }
+    );
+
+    if (response.ok) {
+        window.location.reload();
+    } else {
+      console.error("Failed to delete request");
+    }
+  });
+deleteRequestDeclineModalBtn &&
+  deleteRequestDeclineModalBtn.addEventListener("click", () => {
+    closeModal(deleteRequestConfirmModal);
   });
 
 deleteRequestConfirmModal &&
@@ -127,6 +152,7 @@ declineRequestModal &&
 deleteRequestBtns &&
   deleteRequestBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
+      deleteRequestConfirmModal.dataset.requestId = btn.dataset.id;
       openModal(deleteRequestConfirmModal);
     });
   });

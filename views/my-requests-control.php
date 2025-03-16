@@ -84,9 +84,9 @@ $requests = Request::all();
                       <button edit-request class="actions__delete" data-id="<?= $request->id ?>" data-response="<?= $request->response ?>" data-response-image="<?= Router::getRoute($request->response_image) ?>" data-status="<?= $request->status ?>">
                         Редактировать
                       </button>
-                      <!-- <button decline-request class="actions__delete">
-                        Отклонить
-                      </button> -->
+                      <button delete-request data-id="<?= $request->id ?>" class="actions__delete">
+                        Удалить
+                      </button>
                       <span class="actions__status" data-status="solved"
                         >Решено</span
                       >
@@ -112,9 +112,9 @@ $requests = Request::all();
                       <button edit-request class="actions__delete" data-id="<?= $request->id ?>" data-response="<?= $request->response ?>" data-response-image="<?= Router::getRoute($request->response_image) ?>" data-status="<?= $request->status ?>">
                         Редактировать
                       </button>
-                      <!-- <button decline-request class="actions__delete">
-                        Отклонить
-                      </button> -->
+                      <button delete-request data-id="<?= $request->id ?>" class="actions__delete">
+                        Удалить
+                      </button>
                       <span class="actions__status" data-status="rejected"
                         >Отклонено</span
                       >
@@ -140,9 +140,9 @@ $requests = Request::all();
                       <button edit-request class="actions__delete" data-id="<?= $request->id ?>" data-response="<?= $request->response ?>" data-response-image="<?= Router::getRoute($request->response_image) ?>" data-status="<?= $request->status ?>">
                         Редактировать
                       </button>
-                      <!-- <button decline-request class="actions__delete">
-                        Отклонить
-                      </button> -->
+                      <button delete-request data-id="<?= $request->id ?>" class="actions__delete">
+                        Удалить
+                      </button>
                       <span class="actions__status" data-status="waiting"
                         >На рассмотрении</span
                       >
