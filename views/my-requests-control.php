@@ -5,7 +5,7 @@ use app\models\Session;
 use app\models\User;
 
 $requests = Request::all();
-$users = User::where('role', '!=', 'user')->get();
+$users = User::where('role', '=', 'user')->get();
 ?>
 
 <!DOCTYPE html>
