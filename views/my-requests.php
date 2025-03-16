@@ -21,7 +21,11 @@ use app\models\Session;
     <section class="main-content__hero">
       <div class="content">
         <div class="content__left">
-          <button class="left__action-btn">Оставить заявку</button>
+          <?php if (Session::check()): ?>
+            <button class="left__action-btn" open-new-requests>Оставить заявку</button>
+          <?php else: ?>
+            <button class="left__action-btn" open-auth-modal>Оставить заявку</button>
+          <?php endif; ?>
         </div>
         <div class="content__right">
           <div class="right__requests-counter">

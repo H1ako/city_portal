@@ -1,8 +1,7 @@
-const newRequestBtn = document.querySelector(".left__action-btn");
 const openNewRequestsBtns = document.querySelectorAll("[open-new-requests]");
 const newRequestModal = document.querySelector("#new-request-modal");
 
-const loginBtn = document.querySelector(".content__login");
+const loginBtns = document.querySelectorAll("[open-auth-modal]");
 const authModal = document.querySelector("#auth-modal");
 const authModalNavBtns =
   authModal && authModal.querySelectorAll(".auth-modal__nav button");
@@ -60,7 +59,9 @@ function setAuthModalState(state) {
   authModal.dataset.state = state;
 }
 
-loginBtn && loginBtn.addEventListener("click", () => openModal(authModal));
+loginBtns.forEach(btn => {
+  btn.addEventListener("click", () => openModal(authModal));
+})
 authModalNavBtns &&
   authModalNavBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -74,8 +75,6 @@ authModal &&
     }
   });
 
-newRequestBtn &&
-  newRequestBtn.addEventListener("click", () => openModal(newRequestModal));
 openNewRequestsBtns &&
   openNewRequestsBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
