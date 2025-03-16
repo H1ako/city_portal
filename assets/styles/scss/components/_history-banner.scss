@@ -1,0 +1,60 @@
+.history-banner {
+    position: relative;
+    width: 100%;
+    background: var(--color-main);
+    z-index: 1;
+    overflow: hidden;
+
+    &__bg {
+        position: absolute;
+        z-index: -1;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+
+        .bg-part-3 {
+            width: 40em;
+            position: absolute;
+            top: -20%;
+            right: 6%;
+
+            @media screen and (width < 748px) {
+                top: -11%;
+                right: -29%;
+            }
+        }
+
+        .bg__man {
+            width: 40em;
+            position: absolute;
+            top: -13%;
+            right: 5%;
+            transform: rotateY(180deg);
+
+            @media screen and (width < 748px) {
+                top: 45%;
+                right: -30%;
+            }
+        }
+    }
+
+    &__text {
+        @include yandexDisplayFont;
+
+        font-size: var(--font-size-3);
+        font-weight: 300;
+        max-width: 40em;
+        line-height: 1.55;
+        letter-spacing: 1.35px;
+        padding: 3em;
+
+        @media screen and (width < 748px) {
+            max-width: 28em;
+            padding: 1.5em;
+        }
+
+        @media screen and (width < 550px) {
+            backdrop-filter: blur(17px);
+        }
+    }
+}

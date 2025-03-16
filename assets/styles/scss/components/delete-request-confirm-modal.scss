@@ -1,0 +1,45 @@
+.delete-request-confirm-modal {
+  padding: 4rem;
+  width: min(100vw - 2rem, 40rem);
+  background: var(--color-bg);
+  border-radius: 1rem;
+  color: var(--color-text);
+  border: none;
+
+  &::backdrop {
+    background: var(--color-text);
+    opacity: 0.15;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__actions {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 4rem;
+
+    &::after {
+      content: "";
+      height: 100%;
+      width: 2px;
+      background: var(--color-text);
+      opacity: 0.15;
+      position: absolute;
+      left: 50%;
+      top: 0;
+    }
+
+    button {
+      @include button;
+      background: none;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      color: var(--colo-text);
+      flex: 1 1 50%;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /city_portal/
+
+  # RewriteCond %{HTTP_HOST} ^localhost
+  # RewriteRule (.*) http://localhost/city_portal/$1 [R=301,L]
+
+  # Redirect to api.php if URL starts with /api/
+  RewriteCond %{REQUEST_URI} !(\.png|\.jpg|\.webp|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js|\.pdf|\.mo|\.ttf|\.woff2|\.po)$ [NC]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} ^/city_portal/api/ [NC]
+  RewriteRule (.*) api.php [QSA,L]
+
+  # Redirect to routes.php for all other URLs
+  RewriteCond %{REQUEST_URI} !(\.png|\.jpg|\.webp|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js|\.pdf|\.mo|\.ttf|\.woff2|\.po)$ [NC]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !^/city_portal/assets/ [NC]
+  RewriteCond %{REQUEST_URI} !^/city_portal/api/ [NC]
+  RewriteRule (.*) routes.php [QSA,L]
+</IfModule>

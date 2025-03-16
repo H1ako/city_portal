@@ -1,0 +1,108 @@
+@import "./mixins";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  overflow-x: hidden;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+a {
+  @include cleanLink;
+}
+
+button {
+  @include cleanButton;
+}
+
+input {
+  @include cleanInput;
+}
+
+h5,
+p,
+button,
+a {
+  font-size: var(--font-size-5);
+}
+
+h1, h2, h3, h4, h5, ul, p {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--font-size-1);
+}
+
+h2 {
+  font-size: var(--font-size-2);
+}
+
+h3 {
+  font-size: var(--font-size-3);
+}
+
+h4 {
+  font-size: var(--font-size-4);
+}
+
+h5 {
+  font-size: var(--font-size-5);
+}
+
+p {
+  font-size: var(--font-size-5);
+}
+
+b {
+  color: var(--color-main);
+  font-weight: 700;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  outline: transparent;
+  border: none;
+}

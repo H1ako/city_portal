@@ -1,0 +1,90 @@
+.auth-modal {
+  padding: 4rem;
+  width: min(100vw - 2rem, 45rem);
+  background: var(--color-bg);
+  border-radius: 1rem;
+  border: none;
+
+  &[data-state="login"] {
+    .content__form.content__login {
+      display: flex;
+    }
+  }
+
+  &[data-state="register"] {
+    .content__form.content__register {
+      display: flex;
+    }
+  }
+
+  &::backdrop {
+    background: var(--color-text);
+    opacity: 0.15;
+  }
+
+  &__nav {
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      li {
+        button {
+          font-size: var(--font-size-2);
+          background: none;
+          color: var(--color-text);
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &__content {
+    margin-top: 4rem;
+    position: relative;
+
+    .content__form {
+      position: relative;
+      width: 100%;
+      min-height: 45rem;
+      flex-direction: column;
+      gap: 1.5rem;
+      display: none;
+
+      .form__field {
+        @include inputField;
+      }
+
+      .form__checkbox-field {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: var(--font-size-5);
+        cursor: pointer;
+
+        input {
+          width: 1.5em;
+          aspect-ratio: 1;
+          border-radius: 0.5rem;
+          background: var(--color-text);
+          outline: transparent;
+          border: none;
+          cursor: pointer;
+        }
+
+        span {
+          color: var(--color-text);
+          user-select: none;
+        }
+      }
+
+      .form__submit {
+        @include button;
+
+        margin-top: auto;
+        width: 100%;
+      }
+    }
+  }
+}

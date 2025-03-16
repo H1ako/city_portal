@@ -1,0 +1,61 @@
+.edit-request-modal {
+  padding: 4rem;
+  width: min(100vw - 2rem, 40rem);
+  background: var(--color-bg);
+  border-radius: 1rem;
+  color: var(--color-text);
+  border: none;
+
+  &::backdrop {
+    background: var(--color-text);
+    opacity: 0.15;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .content__form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .form__image-field {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+
+      .image-field__image {
+        width: 100%;
+        line-height: 30rem;
+        aspect-ratio: 1;
+        background: var(--color-el-bg);
+        border-radius: 1rem;
+        color: var(--color-text);
+        font-size: var(--font-size-2);
+        text-align: center;
+        vertical-align: middle;
+        display: inline-block;
+      }
+
+      .image-field__button {
+        @include button;
+
+        border: 2px solid var(--color-text);
+        background: none;
+        color: var(--color-text);
+      }
+    }
+
+    .form__field {
+      @include inputField;
+    }
+
+    .form__submit {
+      @include button;
+    }
+  }
+}
