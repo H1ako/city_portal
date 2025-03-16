@@ -704,7 +704,7 @@ button {
   animation: dot-1-move 2s ease infinite, index 6s -2s ease infinite;
 }
 .loading-screen__dots-wrapper .dots-wrapper__dot.dot_two {
-  background-color: var(--color-secondary);
+  background-color: var(--color-accent);
   animation: dot-2-move 2s ease infinite, index 6s -4s ease infinite;
 }
 .loading-screen__dots-wrapper .dots-wrapper__dot.dot_three {

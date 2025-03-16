@@ -23,3 +23,4 @@
         <h5 class="bottom__rights">Copyright © 2025 All Rights Reserved</h5>
     </div>
 </footer>
+<?php include_once('components/loading-screen.php'); ?>
