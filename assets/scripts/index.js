@@ -44,6 +44,7 @@ function closeModal(modal) {
 
 function checkIfOuterClicked(event, element) {
   const elementBox = element.getBoundingClientRect();
+  if (event.clientX === 0 && event.clientY === 0) return false;
 
   return (
     event.clientX < elementBox.left ||
