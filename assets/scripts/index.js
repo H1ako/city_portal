@@ -27,6 +27,9 @@ const declineRequestModal = document.querySelector("#decline-request-modal");
 const editBtns = document.querySelectorAll("[edit-request]");
 const editRequestModal = document.querySelector("#edit-request-modal");
 
+const loginForm = document.querySelector("#login-form");
+const signupForm = document.querySelector("#signup-form");
+
 function openModal(modal) {
   if (!modal) return;
 
@@ -59,9 +62,55 @@ function setAuthModalState(state) {
   authModal.dataset.state = state;
 }
 
+loginForm &&
+  loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(loginForm);
+    const response = await fetch(`${SITE_URL}/api/auth/signin`, {
+      method: 'POST',
+      body: formData
+    });
+    if (response.ok) {
+      const data = await response.json();
+      const redirect = data?.redirect
+      if (redirect) {
+        window.location.href = redirect
+      } else {
+        window.location.reload()
+      }
+    } else {
+      console.error('Failed to login')
+    }
+    // closeModal(authModal);
+  });
+
+signupForm &&
+  signupForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(signupForm);
+    const response = await fetch(`${SITE_URL}/api/auth/signup`, {
+      method: 'POST',
+      body: formData
+    });
+    if (response.ok) {
+      const data = await response.json();
+      const redirect = data?.redirect
+      if (redirect) {
+        window.location.href = redirect
+      } else {
+        window.location.reload()
+      }
+    } else {
+      console.error('Failed to signup')
+    }
+    // closeModal(authModal);
+  });
+
 loginBtns.forEach(btn => {
   btn.addEventListener("click", () => openModal(authModal));
 })
+
+
 authModalNavBtns &&
   authModalNavBtns.forEach((btn) => {
     btn.addEventListener("click", () => {

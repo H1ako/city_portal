@@ -126,12 +126,13 @@ abstract class Controller
         // rule can be 'required|string|int|file|email|phone_number|datetime|min:{n}|max:{n}'
         $parts = explode('|', $rule);
         $is_required = in_array('required', $parts);
-
+        
         // If the value is not required and empty, skip all other checks
         if (!$is_required && empty($value)) {
             return true;
         }
-
+        
+        // return true;
         foreach ($parts as $part) {
             $part = trim($part);
 
@@ -141,9 +142,9 @@ abstract class Controller
             if ($part === 'email' && !filter_var($value, FILTER_VALIDATE_EMAIL)) return false;
             if ($part === 'phone_number' && !preg_match('/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/', $value)) return false;
             if ($part === 'datetime' && !preg_match('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}(:\d{2})?$/', $value)) return false;
-            if (strpos($part, 'min:') !== false && strlen($value) < substr($part, 4)) return false;
-            if (strpos($part, 'max:') !== false && strlen($value) > substr($part, 4)) return false;
-            if (strpos($part, 'in:') !== false && !in_array($value, explode(',', substr($part, 3)))) return false;
+            if (strpos($part, 'min:') === 0 && strlen($value) < intval(substr($part, 4))) return false;
+            if (strpos($part, 'max:') === 0 && strlen($value) > intval(substr($part, 4))) return false;
+            if (strpos($part, 'in:') === 0 && !in_array($value, explode(',', substr($part, 3)))) return false;
             if ($part === 'file') {
                 if (!is_array($value) || !isset($value['name'], $value['type'], $value['size'], $value['tmp_name'], $value['error'])) {
                     return false;

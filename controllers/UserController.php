@@ -17,7 +17,7 @@ class UserController extends Controller
         $session = Session::get();
 
         $email = static::get_post_field('email');
-        $password = static::get_post_field('pass');
+        $password = static::get_post_field('password');
 
         $user = $session->sign_in($email, $password);
 
@@ -35,10 +35,10 @@ class UserController extends Controller
     {
         $session = Session::get();
 
-        $data = static::get_post_data(['full_name' => 'full_name', 'phone' => 'phone_number', 'pass1' => 'password', 'email' => 'email']);
+        $data = static::get_post_data(['first_name' => 'first_name', 'last_name' => 'last_name', 'password' => 'password', 'email' => 'email']);
         $is_validated = static::validate_data($data, [
-            'full_name' => 'required|string|min:8|max:60',
-            'phone_number' => 'required|phone_number',
+            'first_name' => 'required|string|min:4|max:60',
+            'last_name' => 'required|string|min:4|max:60',
             'password' => 'required|string|min:8',
             'email' => 'required|string|email'
         ]);
@@ -68,11 +68,10 @@ class UserController extends Controller
     {
         $session = Session::get();
 
-        $data = static::get_post_data(['full_name' => 'full_name', 'phone' => 'phone_number', 'address' => 'address']);
+        $data = static::get_post_data(['first_name' => 'first_name', 'last_name' => 'last_name']);
         $is_validated = static::validate_data($data, [
-            'full_name' => 'required|string|min:8|max:60',
-            'phone_number' => 'required|string|phone_number',
-            'address' => 'string|min:8|max:160',
+            'first_name' => 'required|string|min:4|max:60',
+            'last_name' => 'required|string|min:4|max:60',
         ]);
         if (!$is_validated) {
             return static::response_error(400, 'Invalid data');

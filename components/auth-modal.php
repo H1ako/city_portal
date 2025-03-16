@@ -1,3 +1,11 @@
+<?php
+
+use app\models\Session;
+
+$session = Session::get();
+
+?>
+
 <dialog class="auth-modal" id="auth-modal">
     <nav class="auth-modal__nav">
         <ul>
@@ -11,8 +19,9 @@
     </nav>
     <div class="auth-modal__content">
         <form class="content__form content__login" id="login-form">
-            <input required type="email" class="form__field" placeholder="Email*" />
-            <input required type="password" class="form__field" placeholder="Пароль*" />
+            <?php $session->set_csrf() ?>
+            <input name="email" required type="email" class="form__field" placeholder="Email*" />
+            <input name="password" required type="password" class="form__field" placeholder="Пароль*" />
             <label class="form__checkbox-field">
                 <input type="checkbox" />
                 <span>Запомнить меня</span>
@@ -20,11 +29,13 @@
             <button type="submit" class="form__submit" type="submit">Вход</button>
         </form>
         <form class="content__form content__register" id="signup-form">
-            <input required type="email" class="form__field" placeholder="Email*" />
-            <input required type="text" class="form__field" placeholder="Имя*" />
-            <input required type="text" class="form__field" placeholder="Фамилия*" />
-            <input required type="password" class="form__field" placeholder="Пароль*" />
+            <?php $session->set_csrf() ?>
+            <input name="email" required type="email" class="form__field" placeholder="Email*" />
+            <input name="first_name" required type="text" class="form__field" placeholder="Имя*" />
+            <input name="last_name" required type="text" class="form__field" placeholder="Фамилия*" />
+            <input name="password" required type="password" class="form__field" placeholder="Пароль*" />
             <input
+                name="password2"
                 required
                 type="password"
                 class="form__field"
