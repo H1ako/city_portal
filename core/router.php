@@ -16,6 +16,10 @@ class Router
     return static::getRoute('/assets' . $path);
   }
 
+  public static function getUploads($path) {
+    return static::getRoute('/uploads' . $path);
+  }
+
   public static function set_route_prefix($route)
   {
     static::$endpoint = rtrim($route, '/');

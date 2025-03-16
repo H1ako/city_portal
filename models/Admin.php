@@ -8,55 +8,36 @@ class Admin extends BaseModel
 {
     protected $user;
 
-
     public function __construct($user)
     {
         $this->user = $user;
     }
 
-    public function create_service($data)
+    public function create_request($data)
     {
-        return Service::create($data);
+        return Request::create($data);
     }
 
-    public function update_service_by_id($id, $data)
+    public function update_request_by_id($id, $data)
     {
-        if (isset($data['preview_image'])) {
-            $uploaded = static::upload_image($data['preview_image']);
+        if (isset($data['image'])) {
+            $uploaded = static::upload_image($data['image']);
             if ($uploaded) {
-                $data['preview_image'] = $uploaded;
+                $data['image'] = $uploaded;
             } else {
-                unset($data['preview_image']);
+                unset($data['image']);
             }
         }
 
-        $service = Service::get_by_id($id);
-        $service->_update_all($data)->save();
+        $request = Request::get_by_id($id);
+        $request->_update_all($data)->save();
 
-        return $service;
+        return $request;
     }
 
-    public function delete_service_by_id($id)
+    public function delete_request_by_id($id)
     {
-        return Service::get_by_id($id)->delete();
-    }
-
-    public function create_service_history($data)
-    {
-        return ServiceHistory::create($data);
-    }
-
-    public function update_service_history_by_id($id, $data)
-    {
-        $service_history = ServiceHistory::get_by_id($id);
-        $service_history->_update_all($data)->save();
-
-        return $service_history;
-    }
-
-    public function delete_service_history_by_id($id)
-    {
-        return ServiceHistory::get_by_id($id)->delete();
+        return Request::get_by_id($id)->delete();
     }
 
     public function create_user($data)

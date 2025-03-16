@@ -8,25 +8,24 @@ class User extends BaseModel
 {
     protected static $table_name = 'users';
 
-    protected static $public_fields = ['full_name', 'phone_number', 'address'];
+    protected static $public_fields = ['first_name', 'last_name'];
     protected static $private_fields = ['id', 'updated_at', 'created_at', 'password', 'role', 'email'];
 
-    public $full_name;
-    public $phone_number;
-    public $address;
+    public $first_name;
+    public $last_name;
     protected $email;
     protected $password;
     protected $role;
 
-    protected $service_history_data;
+    protected $requests_data;
 
 
-    public function get_service_history_attribute()
+    public function get_requests_attribute()
     {
-        if (!isset($this->service_history_data)) {
-            $this->service_history_data = ServiceHistory::where('user_id', '=', $this->id)->get();
+        if (!isset($this->requests_data)) {
+            $this->requests_data = Request::where('user_id', '=', $this->id)->get();
         }
-        return $this->service_history_data;
+        return $this->requests_data;
     }
 
 
@@ -43,6 +42,12 @@ class User extends BaseModel
     public function get_is_admin_attribute()
     {
         return $this->role === 'admin';
+    }
+
+
+    public function get_full_name_attribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
     }
 
 

@@ -26,6 +26,18 @@ class Session
         return $_SESSION['csrf'];
     }
 
+    public static function check() {
+        return isset($_SESSION['sessionkey']);
+    }
+
+    public static function user() {
+        if (isset($_SESSION['sessionkey'])) {
+            $session = new static($_SESSION['sessionkey']);
+            return $session->user;
+        }
+        return null;
+    }
+
     public function set_csrf()
     {
         echo '<input type="hidden" name="csrf" value="' . $this->get_csrf_token() . '">';
