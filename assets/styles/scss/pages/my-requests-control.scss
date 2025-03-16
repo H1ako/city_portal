@@ -127,6 +127,10 @@
     position: relative;
     width: 100%;
 
+    &.news_requests {
+      margin-top: 14em;
+    }
+
     .news__bg-title {
       position: absolute;
       top: 0;

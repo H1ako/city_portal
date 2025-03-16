@@ -22,6 +22,25 @@ const declineBtns = document.querySelectorAll("[decline-request]");
 const declineRequestModal = document.querySelector("#decline-request-modal");
 
 const deleteRequestBtns = document.querySelectorAll("[delete-request]");
+const deleteUserBtns = document.querySelectorAll("[delete-user]");
+
+deleteUserBtns.forEach((btn) => {
+  btn.addEventListener("click", async () => {
+    const userId = btn.dataset.id;
+    const response = await fetch(`${SITE_URL}/api/admin/users/${userId}/delete`, {
+      method: "DELETE",
+      body: JSON.stringify({
+        csrf: document.querySelector("meta[name=csrf]").content
+      })
+    });
+
+    if (response.ok) {
+      btn.closest("li").remove();
+    } else {
+      console.error("Failed to delete user");
+    }
+  });
+});
 
 editRequestModal &&
   editRequestModal.addEventListener("submit", async (event) => {

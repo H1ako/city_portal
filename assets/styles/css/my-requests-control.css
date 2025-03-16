@@ -696,6 +696,9 @@
   position: relative;
   width: 100%;
 }
+.main-content__news.news_requests {
+  margin-top: 14em;
+}
 .main-content__news .news__bg-title {
   position: absolute;
   top: 0;

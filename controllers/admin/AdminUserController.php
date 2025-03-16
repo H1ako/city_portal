@@ -83,6 +83,6 @@ class AdminUserController extends Controller
             return static::response_success([], 'User deleted successfully');    
         }
 
-        return static::response_error(502, 'User to delete service');
+        return static::response_error(502, 'Unable to delete user');
     }
 }
