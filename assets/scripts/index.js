@@ -29,6 +29,7 @@ const editRequestModal = document.querySelector("#edit-request-modal");
 
 const loginForm = document.querySelector("#login-form");
 const signupForm = document.querySelector("#signup-form");
+const logoutBtns = document.querySelectorAll("[logout-btn]");
 
 function openModal(modal) {
   if (!modal) return;
@@ -61,6 +62,19 @@ function setAuthModalState(state) {
 
   authModal.dataset.state = state;
 }
+
+logoutBtns.forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const response = await fetch(`${SITE_URL}/api/auth/logout`, {
+      method: 'get'
+    })
+    if (response.ok) {
+      window.location.reload()
+    } else {
+      console.error('Failed to logout')
+    }
+  })
+})
 
 loginForm &&
   loginForm.addEventListener("submit", async (event) => {
