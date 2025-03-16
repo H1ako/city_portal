@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Городской портал</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="my-requests-control.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="content">
+        <img src="logo.svg" alt="Logo" class="content__logo" />
+        <button class="content__user">Никита Соболев</button>
+        <div class="content__user-profile">
+          <h3 class="user-profile__name">Соболев Никита</h3>
+          <nav class="user-profile__nav">
+            <ul>
+              <li>
+                <a href="#">Управление заявками</a>
+              </li>
+              <li>
+                <a href="#">Мои заявки</a>
+              </li>
+              <li>
+                <a href="#">Выйти</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class="main-content">
+      <section class="main-content__hero">
+        <div class="content">
+          <div class="content__left">
+            <h2>Панель администратора</h2>
+          </div>
+          <div class="content__right">
+            <div class="right__requests-counter">
+              <ul class="requests-counter__num-tabs">
+                <li class="num-tabs__item">
+                  <div class="delimeter"></div>
+                  <span>1</span>
+                </li>
+                <li class="num-tabs__item">
+                  <div class="delimeter"></div>
+                  <span>2</span>
+                </li>
+                <li class="num-tabs__item">
+                  <div class="delimeter"></div>
+                  <span>3</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="main-content__news">
+        <h2 class="news__bg-title">Управеление заявками</h2>
+        <div class="content">
+          <div class="content__top">
+            <h2 class="top__main-title">Управеление заявками</h2>
+            <button edit-categories>
+              <span>Категории</span>
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 32.5C0 33.8828 1.11719 35 2.5 35H6.77344C7.73438 37.2109 9.9375 38.75 12.5 38.75C15.0625 38.75 17.2656 37.2109 18.2266 35H37.5C38.8828 35 40 33.8828 40 32.5C40 31.1172 38.8828 30 37.5 30H18.2266C17.2656 27.7891 15.0625 26.25 12.5 26.25C9.9375 26.25 7.73438 27.7891 6.77344 30H2.5C1.11719 30 0 31.1172 0 32.5ZM10 32.5C10 31.837 10.2634 31.2011 10.7322 30.7322C11.2011 30.2634 11.837 30 12.5 30C13.163 30 13.7989 30.2634 14.2678 30.7322C14.7366 31.2011 15 31.837 15 32.5C15 33.163 14.7366 33.7989 14.2678 34.2678C13.7989 34.7366 13.163 35 12.5 35C11.837 35 11.2011 34.7366 10.7322 34.2678C10.2634 33.7989 10 33.163 10 32.5ZM25 20C25 19.337 25.2634 18.7011 25.7322 18.2322C26.2011 17.7634 26.837 17.5 27.5 17.5C28.163 17.5 28.7989 17.7634 29.2678 18.2322C29.7366 18.7011 30 19.337 30 20C30 20.663 29.7366 21.2989 29.2678 21.7678C28.7989 22.2366 28.163 22.5 27.5 22.5C26.837 22.5 26.2011 22.2366 25.7322 21.7678C25.2634 21.2989 25 20.663 25 20ZM27.5 13.75C24.9375 13.75 22.7344 15.2891 21.7734 17.5H2.5C1.11719 17.5 0 18.6172 0 20C0 21.3828 1.11719 22.5 2.5 22.5H21.7734C22.7344 24.7109 24.9375 26.25 27.5 26.25C30.0625 26.25 32.2656 24.7109 33.2266 22.5H37.5C38.8828 22.5 40 21.3828 40 20C40 18.6172 38.8828 17.5 37.5 17.5H33.2266C32.2656 15.2891 30.0625 13.75 27.5 13.75ZM15 10C14.337 10 13.7011 9.73661 13.2322 9.26777C12.7634 8.79893 12.5 8.16304 12.5 7.5C12.5 6.83696 12.7634 6.20107 13.2322 5.73223C13.7011 5.26339 14.337 5 15 5C15.663 5 16.2989 5.26339 16.7678 5.73223C17.2366 6.20107 17.5 6.83696 17.5 7.5C17.5 8.16304 17.2366 8.79893 16.7678 9.26777C16.2989 9.73661 15.663 10 15 10ZM20.7266 5C19.7656 2.78906 17.5625 1.25 15 1.25C12.4375 1.25 10.2344 2.78906 9.27344 5H2.5C1.11719 5 0 6.11719 0 7.5C0 8.88281 1.11719 10 2.5 10H9.27344C10.2344 12.2109 12.4375 13.75 15 13.75C17.5625 13.75 19.7656 12.2109 20.7266 10H37.5C38.8828 10 40 8.88281 40 7.5C40 6.11719 38.8828 5 37.5 5H20.7266Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+          <ul class="content__list">
+            <li class="list__item">
+              <img src="news.png" alt="" class="item__img" />
+              <div class="item__wrapper">
+                <h3 class="wrapper__title">
+                  Февраль в Москве будет на 3–4 градуса теплее нормы
+                </h3>
+
+                <div class="wrapper__secondary-actions">
+                  <button class="secondary-actions__more">Подробнее</button>
+                  <time class="secondary-actions__date">12 января 2024</time>
+                  <button change-cat class="secondary-actions__cat">
+                    Жизнь города
+                  </button>
+                </div>
+                <div class="wrapper__actions">
+                  <button edit-request class="actions__delete">
+                    Редактировать
+                  </button>
+                  <button decline-request class="actions__delete">
+                    Отклонить
+                  </button>
+                  <span class="actions__status" data-status="solved"
+                    >Решено</span
+                  >
+                </div>
+              </div>
+            </li>
+            <li class="list__item">
+              <img src="news.png" alt="" class="item__img" />
+              <div class="item__wrapper">
+                <h3 class="wrapper__title">
+                  Февраль в Москве будет на 3–4 градуса теплее нормы
+                </h3>
+
+                <div class="wrapper__secondary-actions">
+                  <button class="secondary-actions__more">Подробнее</button>
+                  <time class="secondary-actions__date">12 января 2024</time>
+                  <button change-cat class="secondary-actions__cat">
+                    Жизнь города
+                  </button>
+                </div>
+                <div class="wrapper__actions">
+                  <button edit-request class="actions__delete">
+                    Редактировать
+                  </button>
+                  <button decline-request class="actions__delete">
+                    Отклонить
+                  </button>
+                  <span class="actions__status" data-status="rejected"
+                    >Отклонено</span
+                  >
+                </div>
+              </div>
+            </li>
+            <li class="list__item">
+              <img src="news.png" alt="" class="item__img" />
+              <div class="item__wrapper">
+                <h3 class="wrapper__title">
+                  Февраль в Москве будет на 3–4 градуса теплее нормы
+                </h3>
+
+                <div class="wrapper__secondary-actions">
+                  <button class="secondary-actions__more">Подробнее</button>
+                  <time class="secondary-actions__date">12 января 2024</time>
+                  <button change-cat class="secondary-actions__cat">
+                    Жизнь города
+                  </button>
+                </div>
+                <div class="wrapper__actions">
+                  <button edit-request class="actions__delete">
+                    Редактировать
+                  </button>
+                  <button decline-request class="actions__delete">
+                    Отклонить
+                  </button>
+                  <span class="actions__status" data-status="waiting"
+                    >На рассмотрении</span
+                  >
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__top">
+        <img src="logo.svg" alt="Logo" class="top__logo" />
+        <nav class="top__nav">
+          <ul>
+            <li>
+              <a href="#">Главная</a>
+            </li>
+            <li>
+              <a href="#">Новости</a>
+            </li>
+          </ul>
+        </nav>
+        <ul class="top__socials">
+          <li class="socials__item">
+            <button class="item__wrapper">
+              <svg
+                width="31"
+                height="25"
+                viewBox="0 0 31 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M25.1318 3.41725C25.1241 3.40249 25.1114 3.39092 25.096 3.38462C23.3116 2.56912 21.4286 1.9876 19.494 1.65462C19.4764 1.65137 19.4583 1.65372 19.4421 1.66133C19.4259 1.66895 19.4126 1.68145 19.404 1.69705C19.1476 2.16062 18.9148 2.63678 18.7066 3.12371C16.6212 2.8084 14.5 2.8084 12.4147 3.12371C12.205 2.63554 11.9686 2.15926 11.7063 1.69705C11.6973 1.68179 11.6839 1.66958 11.6678 1.66201C11.6517 1.65444 11.6337 1.65187 11.6162 1.65462C9.68142 1.9869 7.79826 2.56846 6.0141 3.38466C5.99883 3.39111 5.98594 3.40213 5.97722 3.41618C2.40926 8.72365 1.43186 13.9006 1.91134 19.0135C1.91269 19.026 1.91655 19.0381 1.9227 19.0492C1.92886 19.0602 1.93717 19.0698 1.94715 19.0776C4.02474 20.6099 6.34855 21.7795 8.81941 22.5365C8.83681 22.5417 8.85539 22.5415 8.87265 22.5358C8.88992 22.5302 8.90503 22.5194 8.91597 22.505C9.44666 21.7857 9.91689 21.0241 10.3219 20.2278C10.3274 20.2169 10.3306 20.2049 10.3312 20.1927C10.3318 20.1804 10.3297 20.1682 10.3252 20.1568C10.3207 20.1454 10.3139 20.1351 10.3051 20.1265C10.2963 20.118 10.2857 20.1114 10.2742 20.1072C9.53266 19.8245 8.81479 19.4839 8.12729 19.0883C8.1148 19.081 8.10431 19.0707 8.09675 19.0584C8.08919 19.0461 8.08479 19.0321 8.08393 19.0177C8.08307 19.0033 8.08579 18.9889 8.09185 18.9758C8.0979 18.9627 8.1071 18.9513 8.11863 18.9426C8.26289 18.8349 8.40724 18.7229 8.54499 18.6098C8.55722 18.5998 8.57203 18.5933 8.58775 18.5912C8.60346 18.5891 8.61945 18.5914 8.63392 18.5979C13.138 20.6454 18.0143 20.6454 22.465 18.5979C22.4795 18.591 22.4957 18.5884 22.5116 18.5903C22.5276 18.5922 22.5427 18.5986 22.5551 18.6087C22.6929 18.7219 22.8372 18.8349 22.9825 18.9426C22.9941 18.9512 23.0034 18.9626 23.0095 18.9756C23.0157 18.9887 23.0185 19.003 23.0178 19.0175C23.017 19.0319 23.0127 19.0459 23.0053 19.0582C22.9978 19.0706 22.9874 19.0809 22.9749 19.0883C22.289 19.4872 21.5705 19.8277 20.827 20.1061C20.8155 20.1105 20.805 20.1172 20.7962 20.1259C20.7875 20.1346 20.7807 20.145 20.7763 20.1565C20.7719 20.168 20.7699 20.1803 20.7706 20.1926C20.7713 20.2049 20.7746 20.2169 20.7802 20.2278C21.192 21.0197 21.6615 21.7803 22.185 22.5037C22.1957 22.5186 22.2107 22.5297 22.228 22.5356C22.2454 22.5414 22.2641 22.5417 22.2816 22.5364C24.7569 21.7819 27.0848 20.6122 29.165 19.0776C29.1751 19.0702 29.1835 19.0608 29.1897 19.0499C29.1959 19.0391 29.1996 19.027 29.2008 19.0146C29.7748 13.1036 28.2398 7.96901 25.1318 3.41725ZM10.9945 15.9003C9.63846 15.9003 8.52112 14.6607 8.52112 13.1384C8.52112 11.616 9.61679 10.3764 10.9945 10.3764C12.383 10.3764 13.4896 11.6268 13.4679 13.1383C13.4679 14.6607 12.3722 15.9003 10.9945 15.9003ZM20.1394 15.9003C18.7834 15.9003 17.6661 14.6607 17.6661 13.1384C17.6661 11.616 18.7618 10.3764 20.1394 10.3764C21.528 10.3764 22.6345 11.6268 22.6129 13.1383C22.6129 14.6607 21.528 15.9003 20.1394 15.9003Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </li>
+          <li class="socials__item">
+            <button class="item__wrapper">
+              <svg
+                width="31"
+                height="25"
+                viewBox="0 0 31 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M25.1318 3.41725C25.1241 3.40249 25.1114 3.39092 25.096 3.38462C23.3116 2.56912 21.4286 1.9876 19.494 1.65462C19.4764 1.65137 19.4583 1.65372 19.4421 1.66133C19.4259 1.66895 19.4126 1.68145 19.404 1.69705C19.1476 2.16062 18.9148 2.63678 18.7066 3.12371C16.6212 2.8084 14.5 2.8084 12.4147 3.12371C12.205 2.63554 11.9686 2.15926 11.7063 1.69705C11.6973 1.68179 11.6839 1.66958 11.6678 1.66201C11.6517 1.65444 11.6337 1.65187 11.6162 1.65462C9.68142 1.9869 7.79826 2.56846 6.0141 3.38466C5.99883 3.39111 5.98594 3.40213 5.97722 3.41618C2.40926 8.72365 1.43186 13.9006 1.91134 19.0135C1.91269 19.026 1.91655 19.0381 1.9227 19.0492C1.92886 19.0602 1.93717 19.0698 1.94715 19.0776C4.02474 20.6099 6.34855 21.7795 8.81941 22.5365C8.83681 22.5417 8.85539 22.5415 8.87265 22.5358C8.88992 22.5302 8.90503 22.5194 8.91597 22.505C9.44666 21.7857 9.91689 21.0241 10.3219 20.2278C10.3274 20.2169 10.3306 20.2049 10.3312 20.1927C10.3318 20.1804 10.3297 20.1682 10.3252 20.1568C10.3207 20.1454 10.3139 20.1351 10.3051 20.1265C10.2963 20.118 10.2857 20.1114 10.2742 20.1072C9.53266 19.8245 8.81479 19.4839 8.12729 19.0883C8.1148 19.081 8.10431 19.0707 8.09675 19.0584C8.08919 19.0461 8.08479 19.0321 8.08393 19.0177C8.08307 19.0033 8.08579 18.9889 8.09185 18.9758C8.0979 18.9627 8.1071 18.9513 8.11863 18.9426C8.26289 18.8349 8.40724 18.7229 8.54499 18.6098C8.55722 18.5998 8.57203 18.5933 8.58775 18.5912C8.60346 18.5891 8.61945 18.5914 8.63392 18.5979C13.138 20.6454 18.0143 20.6454 22.465 18.5979C22.4795 18.591 22.4957 18.5884 22.5116 18.5903C22.5276 18.5922 22.5427 18.5986 22.5551 18.6087C22.6929 18.7219 22.8372 18.8349 22.9825 18.9426C22.9941 18.9512 23.0034 18.9626 23.0095 18.9756C23.0157 18.9887 23.0185 19.003 23.0178 19.0175C23.017 19.0319 23.0127 19.0459 23.0053 19.0582C22.9978 19.0706 22.9874 19.0809 22.9749 19.0883C22.289 19.4872 21.5705 19.8277 20.827 20.1061C20.8155 20.1105 20.805 20.1172 20.7962 20.1259C20.7875 20.1346 20.7807 20.145 20.7763 20.1565C20.7719 20.168 20.7699 20.1803 20.7706 20.1926C20.7713 20.2049 20.7746 20.2169 20.7802 20.2278C21.192 21.0197 21.6615 21.7803 22.185 22.5037C22.1957 22.5186 22.2107 22.5297 22.228 22.5356C22.2454 22.5414 22.2641 22.5417 22.2816 22.5364C24.7569 21.7819 27.0848 20.6122 29.165 19.0776C29.1751 19.0702 29.1835 19.0608 29.1897 19.0499C29.1959 19.0391 29.1996 19.027 29.2008 19.0146C29.7748 13.1036 28.2398 7.96901 25.1318 3.41725ZM10.9945 15.9003C9.63846 15.9003 8.52112 14.6607 8.52112 13.1384C8.52112 11.616 9.61679 10.3764 10.9945 10.3764C12.383 10.3764 13.4896 11.6268 13.4679 13.1383C13.4679 14.6607 12.3722 15.9003 10.9945 15.9003ZM20.1394 15.9003C18.7834 15.9003 17.6661 14.6607 17.6661 13.1384C17.6661 11.616 18.7618 10.3764 20.1394 10.3764C21.528 10.3764 22.6345 11.6268 22.6129 13.1383C22.6129 14.6607 21.528 15.9003 20.1394 15.9003Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </li>
+          <li class="socials__item">
+            <button class="item__wrapper">
+              <svg
+                width="31"
+                height="25"
+                viewBox="0 0 31 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M25.1318 3.41725C25.1241 3.40249 25.1114 3.39092 25.096 3.38462C23.3116 2.56912 21.4286 1.9876 19.494 1.65462C19.4764 1.65137 19.4583 1.65372 19.4421 1.66133C19.4259 1.66895 19.4126 1.68145 19.404 1.69705C19.1476 2.16062 18.9148 2.63678 18.7066 3.12371C16.6212 2.8084 14.5 2.8084 12.4147 3.12371C12.205 2.63554 11.9686 2.15926 11.7063 1.69705C11.6973 1.68179 11.6839 1.66958 11.6678 1.66201C11.6517 1.65444 11.6337 1.65187 11.6162 1.65462C9.68142 1.9869 7.79826 2.56846 6.0141 3.38466C5.99883 3.39111 5.98594 3.40213 5.97722 3.41618C2.40926 8.72365 1.43186 13.9006 1.91134 19.0135C1.91269 19.026 1.91655 19.0381 1.9227 19.0492C1.92886 19.0602 1.93717 19.0698 1.94715 19.0776C4.02474 20.6099 6.34855 21.7795 8.81941 22.5365C8.83681 22.5417 8.85539 22.5415 8.87265 22.5358C8.88992 22.5302 8.90503 22.5194 8.91597 22.505C9.44666 21.7857 9.91689 21.0241 10.3219 20.2278C10.3274 20.2169 10.3306 20.2049 10.3312 20.1927C10.3318 20.1804 10.3297 20.1682 10.3252 20.1568C10.3207 20.1454 10.3139 20.1351 10.3051 20.1265C10.2963 20.118 10.2857 20.1114 10.2742 20.1072C9.53266 19.8245 8.81479 19.4839 8.12729 19.0883C8.1148 19.081 8.10431 19.0707 8.09675 19.0584C8.08919 19.0461 8.08479 19.0321 8.08393 19.0177C8.08307 19.0033 8.08579 18.9889 8.09185 18.9758C8.0979 18.9627 8.1071 18.9513 8.11863 18.9426C8.26289 18.8349 8.40724 18.7229 8.54499 18.6098C8.55722 18.5998 8.57203 18.5933 8.58775 18.5912C8.60346 18.5891 8.61945 18.5914 8.63392 18.5979C13.138 20.6454 18.0143 20.6454 22.465 18.5979C22.4795 18.591 22.4957 18.5884 22.5116 18.5903C22.5276 18.5922 22.5427 18.5986 22.5551 18.6087C22.6929 18.7219 22.8372 18.8349 22.9825 18.9426C22.9941 18.9512 23.0034 18.9626 23.0095 18.9756C23.0157 18.9887 23.0185 19.003 23.0178 19.0175C23.017 19.0319 23.0127 19.0459 23.0053 19.0582C22.9978 19.0706 22.9874 19.0809 22.9749 19.0883C22.289 19.4872 21.5705 19.8277 20.827 20.1061C20.8155 20.1105 20.805 20.1172 20.7962 20.1259C20.7875 20.1346 20.7807 20.145 20.7763 20.1565C20.7719 20.168 20.7699 20.1803 20.7706 20.1926C20.7713 20.2049 20.7746 20.2169 20.7802 20.2278C21.192 21.0197 21.6615 21.7803 22.185 22.5037C22.1957 22.5186 22.2107 22.5297 22.228 22.5356C22.2454 22.5414 22.2641 22.5417 22.2816 22.5364C24.7569 21.7819 27.0848 20.6122 29.165 19.0776C29.1751 19.0702 29.1835 19.0608 29.1897 19.0499C29.1959 19.0391 29.1996 19.027 29.2008 19.0146C29.7748 13.1036 28.2398 7.96901 25.1318 3.41725ZM10.9945 15.9003C9.63846 15.9003 8.52112 14.6607 8.52112 13.1384C8.52112 11.616 9.61679 10.3764 10.9945 10.3764C12.383 10.3764 13.4896 11.6268 13.4679 13.1383C13.4679 14.6607 12.3722 15.9003 10.9945 15.9003ZM20.1394 15.9003C18.7834 15.9003 17.6661 14.6607 17.6661 13.1384C17.6661 11.616 18.7618 10.3764 20.1394 10.3764C21.528 10.3764 22.6345 11.6268 22.6129 13.1383C22.6129 14.6607 21.528 15.9003 20.1394 15.9003Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__bottom">
+        <h5 class="bottom__rights">Copyright © 2024 All Rights Reserved</h5>
+      </div>
+    </footer>
+    <dialog class="auth-modal" id="auth-modal">
+      <nav class="auth-modal__nav">
+        <ul>
+          <li>
+            <button data-state="login">Вход</button>
+          </li>
+          <li>
+            <button data-state="register">Регистрация</button>
+          </li>
+        </ul>
+      </nav>
+      <div class="auth-modal__content">
+        <form class="content__form content__login">
+          <input type="email" class="form__field" placeholder="Email" />
+          <input type="password" class="form__field" placeholder="Пароль" />
+          <label class="form__checkbox-field">
+            <input type="checkbox" />
+            <span>Запомнить меня</span>
+          </label>
+          <button class="form__submit" type="submit">Вход</button>
+        </form>
+        <form class="content__form content__register">
+          <input type="email" class="form__field" placeholder="Email" />
+          <input type="text" class="form__field" placeholder="Имя" />
+          <input type="text" class="form__field" placeholder="Фамилия" />
+          <input type="password" class="form__field" placeholder="Пароль" />
+          <input
+            type="password"
+            class="form__field"
+            placeholder="Повторите пароль"
+          />
+          <label class="form__checkbox-field">
+            <input type="checkbox" />
+            <span>Я даю свое согласие на обработку персональных данных</span>
+          </label>
+          <button class="form__submit" type="submit">Регистрация</button>
+        </form>
+      </div>
+    </dialog>
+    <dialog class="new-request-modal" id="new-request-modal">
+      <h2 class="new-request-modal__title">Новая заявка</h2>
+      <div class="new-request-modal__content">
+        <form class="content__form">
+          <div class="form__left">
+            <div class="left__image-field">
+              <img src="" alt="Фото заявки" class="image-field__image" />
+              <button type="button" class="image-field__button">Выбрать</button>
+            </div>
+          </div>
+          <div class="form__right">
+            <input placeholder="Заголовок" type="text" class="right__field" />
+            <textarea
+              placeholder="Описание"
+              class="right__field field_description"
+            ></textarea>
+            <div class="right__category">
+              <select class="category__field">
+                <option value="">cat 1</option>
+                <option value="">cat 2</option>
+                <option value="">cat 3</option>
+                <option value="">cat 4</option>
+              </select>
+              <button type="button" class="category__delete-btn">
+                Удалить
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <dialog
+      id="decline-request-confirm-modal"
+      class="decline-request-confirm-modal"
+    >
+      <h3 class="decline-request-confirm-modal__title">
+        Вы уверены, что хотите удалить заявку?
+      </h3>
+      <div class="decline-request-confirm-modal__actions">
+        <button class="actions__delete">Удалить</button>
+        <button class="actions__cancel">Отмена</button>
+      </div>
+    </dialog>
+    <dialog id="edit-categories-modal" class="edit-categories-modal">
+      <div class="edit-categories-modal__content">
+        <h3 class="edit-categories-modal__title">Управление категорями</h3>
+        <ul class="edit-categories-modal__categories">
+          <li>
+            <span>Жизнь города</span>
+            <button type="button">Удалить</button>
+          </li>
+          <li>
+            <span>Жизнь города</span>
+            <button type="button">Удалить</button>
+          </li>
+          <li>
+            <span>Жизнь города</span>
+            <button type="button">Удалить</button>
+          </li>
+        </ul>
+        <button class="edit-categories-modal__new">Новая</button>
+      </div>
+    </dialog>
+    <dialog class="edit-request-modal" id="edit-request-modal">
+      <div class="edit-request-modal__content">
+        <h2 class="edit-request-modal__title">Обработка заявки</h2>
+        <div class="edit-request-modal__content">
+          <form class="content__form">
+            <input placeholder="Решение" type="text" class="form__field" />
+            <div class="form__image-field">
+              <img src="" alt="Фото заявки" class="image-field__image" />
+              <button type="button" class="image-field__button">Выбрать</button>
+            </div>
+            <button type="button" class="form__submit">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+    <dialog class="decline-request-modal" id="decline-request-modal">
+      <div class="decline-request-modal__content">
+        <h2 class="decline-request-modal__title">Отклонение заявки</h2>
+        <form class="content__form">
+          <textarea class="form__field" placeholder="Причина отказа"></textarea>
+          <button type="button" class="form__submit">Отправить</button>
+        </form>
+      </div>
+    </dialog>
+  </body>
+</html>
