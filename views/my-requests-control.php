@@ -1,3 +1,11 @@
+<?php
+
+use app\models\Request;
+use app\models\Session;
+
+$requests = Request::all();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,18 +27,15 @@
           <div class="content__right">
             <div class="right__requests-counter">
               <ul class="requests-counter__num-tabs">
-                <li class="num-tabs__item">
-                  <div class="delimeter"></div>
-                  <span>1</span>
-                </li>
-                <li class="num-tabs__item">
-                  <div class="delimeter"></div>
-                  <span>2</span>
-                </li>
-                <li class="num-tabs__item">
-                  <div class="delimeter"></div>
-                  <span>3</span>
-                </li>
+                <?php 
+                  $requestsAmount = Request::where('status', '=', 'done')->count();
+                  $stringAmount = (string)$requestsAmount;
+                  for ($i = 0; $i < strlen($stringAmount); $i++): ?>
+                  <li class="num-tabs__item">
+                    <div class="delimeter"></div>
+                    <span><?= $stringAmount[$i] ?></span>
+                  </li>
+                <?php endfor; ?>
               </ul>
             </div>
           </div>
@@ -58,87 +63,93 @@
             </button>
           </div>
           <ul class="content__list">
-            <li class="list__item">
-              <img src="news.png" alt="" class="item__img" />
-              <div class="item__wrapper">
-                <h3 class="wrapper__title">
-                  Февраль в Москве будет на 3–4 градуса теплее нормы
-                </h3>
+            <?php foreach ($requests as $request) : ?>
+              <?php if ($request->status === 'done') : ?>
+                <li class="list__item">
+                  <img src="<?= Router::getRoute($request->image) ?>" alt="" class="item__img" />
+                  <div class="item__wrapper">
+                    <h3 class="wrapper__title">
+                      <?= $request->title ?>
+                    </h3>
 
-                <div class="wrapper__secondary-actions">
-                  <button class="secondary-actions__more">Подробнее</button>
-                  <time class="secondary-actions__date">12 января 2024</time>
-                  <button change-cat class="secondary-actions__cat">
-                    Жизнь города
-                  </button>
-                </div>
-                <div class="wrapper__actions">
-                  <button edit-request class="actions__delete">
-                    Редактировать
-                  </button>
-                  <button decline-request class="actions__delete">
-                    Отклонить
-                  </button>
-                  <span class="actions__status" data-status="solved"
-                    >Решено</span
-                  >
-                </div>
-              </div>
-            </li>
-            <li class="list__item">
-              <img src="news.png" alt="" class="item__img" />
-              <div class="item__wrapper">
-                <h3 class="wrapper__title">
-                  Февраль в Москве будет на 3–4 градуса теплее нормы
-                </h3>
+                    <div class="wrapper__secondary-actions">
+                      <button class="secondary-actions__more">Подробнее</button>
+                      <time class="secondary-actions__date">12 января 2024</time>
+                      <button change-cat class="secondary-actions__cat">
+                        <?= $request->category->title ?>
+                      </button>
+                    </div>
+                    <div class="wrapper__actions">
+                      <button edit-request class="actions__delete">
+                        Редактировать
+                      </button>
+                      <button decline-request class="actions__delete">
+                        Отклонить
+                      </button>
+                      <span class="actions__status" data-status="solved"
+                        >Решено</span
+                      >
+                    </div>
+                  </div>
+                </li>
+              <?php elseif ($request->status === 'rejected') : ?>
+                <li class="list__item">
+                  <img src="<?= Router::getRoute($request->image) ?>" alt="" class="item__img" />
+                  <div class="item__wrapper">
+                    <h3 class="wrapper__title">
+                      <?= $request->title ?>
+                    </h3>
 
-                <div class="wrapper__secondary-actions">
-                  <button class="secondary-actions__more">Подробнее</button>
-                  <time class="secondary-actions__date">12 января 2024</time>
-                  <button change-cat class="secondary-actions__cat">
-                    Жизнь города
-                  </button>
-                </div>
-                <div class="wrapper__actions">
-                  <button edit-request class="actions__delete">
-                    Редактировать
-                  </button>
-                  <button decline-request class="actions__delete">
-                    Отклонить
-                  </button>
-                  <span class="actions__status" data-status="rejected"
-                    >Отклонено</span
-                  >
-                </div>
-              </div>
-            </li>
-            <li class="list__item">
-              <img src="news.png" alt="" class="item__img" />
-              <div class="item__wrapper">
-                <h3 class="wrapper__title">
-                  Февраль в Москве будет на 3–4 градуса теплее нормы
-                </h3>
+                    <div class="wrapper__secondary-actions">
+                      <button class="secondary-actions__more">Подробнее</button>
+                      <time class="secondary-actions__date">12 января 2024</time>
+                      <button change-cat class="secondary-actions__cat">
+                        <?= $request->category->title ?>
+                      </button>
+                    </div>
+                    <div class="wrapper__actions">
+                      <button edit-request class="actions__delete">
+                        Редактировать
+                      </button>
+                      <button decline-request class="actions__delete">
+                        Отклонить
+                      </button>
+                      <span class="actions__status" data-status="rejected"
+                        >Отклонено</span
+                      >
+                    </div>
+                  </div>
+                </li>
+              <?php else : ?>
+                <li class="list__item">
+                  <img src="<?= Router::getRoute($request->image) ?>" alt="" class="item__img" />
+                  <div class="item__wrapper">
+                    <h3 class="wrapper__title">
+                      <?= $request->title ?>
+                    </h3>
 
-                <div class="wrapper__secondary-actions">
-                  <button class="secondary-actions__more">Подробнее</button>
-                  <time class="secondary-actions__date">12 января 2024</time>
-                  <button change-cat class="secondary-actions__cat">
-                    Жизнь города
-                  </button>
-                </div>
-                <div class="wrapper__actions">
-                  <button edit-request class="actions__delete">
-                    Редактировать
-                  </button>
-                  <button decline-request class="actions__delete">
-                    Отклонить
-                  </button>
-                  <span class="actions__status" data-status="waiting"
-                    >На рассмотрении</span
-                  >
-                </div>
-              </div>
-            </li>
+                    <div class="wrapper__secondary-actions">
+                      <button class="secondary-actions__more">Подробнее</button>
+                      <time class="secondary-actions__date">12 января 2024</time>
+                      <button change-cat class="secondary-actions__cat">
+                        <?= $request->category->title ?>
+                      </button>
+                    </div>
+                    <div class="wrapper__actions">
+                      <button edit-request class="actions__delete">
+                        Редактировать
+                      </button>
+                      <button decline-request class="actions__delete">
+                        Отклонить
+                      </button>
+                      <span class="actions__status" data-status="waiting"
+                        >На рассмотрении</span
+                      >
+                    </div>
+                  </div>
+                </li>
+              <?php endif; ?>
+            <?php endforeach; ?>
           </ul>
         </div>
       </section>

@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Request;
 use app\models\Session;
 ?>
 
@@ -30,18 +31,15 @@ use app\models\Session;
         <div class="content__right">
           <div class="right__requests-counter">
             <ul class="requests-counter__num-tabs">
-              <li class="num-tabs__item">
-                <div class="delimeter"></div>
-                <span>1</span>
-              </li>
-              <li class="num-tabs__item">
-                <div class="delimeter"></div>
-                <span>2</span>
-              </li>
-              <li class="num-tabs__item">
-                <div class="delimeter"></div>
-                <span>3</span>
-              </li>
+              <?php 
+                $requestsAmount = Request::where('status', '=', 'done')->count();
+                $stringAmount = (string)$requestsAmount;
+                for ($i = 0; $i < strlen($stringAmount); $i++): ?>
+                <li class="num-tabs__item">
+                  <div class="delimeter"></div>
+                  <span><?= $stringAmount[$i] ?></span>
+                </li>
+              <?php endfor; ?>
             </ul>
           </div>
         </div>
@@ -57,7 +55,7 @@ use app\models\Session;
               <?php foreach (Session::user()->requests as $request) : ?>
                 <?php if ($request->status === 'done') : ?>
                   <li class="list__item">
-                    <img src="news.png" alt="" class="item__img" />
+                    <img src="<?= Router::getRoute($request->image) ?>" alt="" class="item__img" />
                     <div class="item__wrapper">
                       <ul class="wrapper__tags">
                         <li class="tags__item"><?= $request->category->title ?></li>
@@ -76,7 +74,7 @@ use app\models\Session;
                   </li>
                 <?php elseif ($request->status === 'rejected') : ?>
                   <li class="list__item">
-                    <img src="news.png" alt="" class="item__img" />
+                    <img src="<?= Router::getRoute($request->image) ?>" alt="" class="item__img" />
                     <div class="item__wrapper">
                       <ul class="wrapper__tags">
                         <li class="tags__item"><?= $request->category->title ?></li>

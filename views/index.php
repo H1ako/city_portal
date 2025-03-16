@@ -5,8 +5,6 @@ use app\models\Session;
 
 global $SITE_URL, $session;
 
-$requestsAmount = Request::where('status', '=', 'done')->count();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +42,7 @@ $requestsAmount = Request::where('status', '=', 'done')->count();
           <div class="right__requests-counter">
             <ul class="requests-counter__num-tabs">
               <?php 
+              $requestsAmount = Request::where('status', '=', 'done')->count();
               $stringAmount = (string)$requestsAmount;
               for ($i = 0; $i < strlen($stringAmount); $i++): ?>
               <li class="num-tabs__item">
