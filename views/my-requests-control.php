@@ -15,6 +15,7 @@ $requests = Request::all();
     <?php include_once('components/base-head.php'); ?>
     <link rel="stylesheet" href="<?= Router::getAssets('/styles/css/my-requests-control.css') ?>" />
     <script src="<?= Router::getAssets('/scripts/index.js') ?>" defer></script>
+    <script src="<?= Router::getAssets('/scripts/admin/admin.js') ?>" defer></script>
   </head>
   <body>
     <?php include_once('components/header.php'); ?>
@@ -76,7 +77,7 @@ $requests = Request::all();
                       <button class="secondary-actions__more">Подробнее</button>
                       <time class="secondary-actions__date">12 января 2024</time>
                       <button change-cat class="secondary-actions__cat">
-                        <?= $request->category->title ?>
+                        <?= $request->category ? $request->category->title : '' ?>
                       </button>
                     </div>
                     <div class="wrapper__actions">
@@ -104,7 +105,7 @@ $requests = Request::all();
                       <button class="secondary-actions__more">Подробнее</button>
                       <time class="secondary-actions__date">12 января 2024</time>
                       <button change-cat class="secondary-actions__cat">
-                        <?= $request->category->title ?>
+                        <?= $request->category ? $request->category->title : '' ?>
                       </button>
                     </div>
                     <div class="wrapper__actions">
@@ -132,7 +133,7 @@ $requests = Request::all();
                       <button class="secondary-actions__more">Подробнее</button>
                       <time class="secondary-actions__date">12 января 2024</time>
                       <button change-cat class="secondary-actions__cat">
-                        <?= $request->category->title ?>
+                        <?= $request->category ? $request->category->title : '' ?>
                       </button>
                     </div>
                     <div class="wrapper__actions">

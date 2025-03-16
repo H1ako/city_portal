@@ -10,23 +10,6 @@ const header = document.querySelector(".header");
 const userBtn = header.querySelector(".content__user");
 const headerUserProfile = header.querySelector(".content__user-profile");
 
-const deleteRequestConfirmModal = document.querySelector(
-  "#delete-request-confirm-modal"
-);
-const deleteRequestConfirmModalBtns =
-  deleteRequestConfirmModal &&
-  deleteRequestConfirmModal.querySelectorAll("button");
-const deleteRequestBtns = document.querySelectorAll("[delete-request]");
-
-const editCategoriesBtn = document.querySelector("[edit-categories]");
-const editCategoriesModal = document.querySelector("#edit-categories-modal");
-
-const declineBtns = document.querySelectorAll("[decline-request]");
-const declineRequestModal = document.querySelector("#decline-request-modal");
-
-const editBtns = document.querySelectorAll("[edit-request]");
-const editRequestModal = document.querySelector("#edit-request-modal");
-
 const loginForm = document.querySelector("#login-form");
 const signupForm = document.querySelector("#signup-form");
 const logoutBtns = document.querySelectorAll("[logout-btn]");
@@ -70,60 +53,60 @@ newRequestForm &&
     event.preventDefault();
     const formData = new FormData(newRequestForm);
     const response = await fetch(`${SITE_URL}/api/requests/create`, {
-      method: 'POST',
-      body: formData
+      method: "POST",
+      body: formData,
     });
     if (response.ok) {
       const data = await response.json();
-      const redirect = data?.redirect
+      const redirect = data?.redirect;
       if (redirect) {
-        window.location.href = redirect
+        window.location.href = redirect;
       } else {
-        window.location.reload()
+        window.location.reload();
       }
     } else {
-      console.error('Failed to create new request')
+      console.error("Failed to create new request");
     }
     // closeModal(newRequestModal);
   });
 
-logoutBtns.forEach(btn => {
-  btn.addEventListener('click', async () => {
+logoutBtns.forEach((btn) => {
+  btn.addEventListener("click", async () => {
     const response = await fetch(`${SITE_URL}/api/auth/logout`, {
-      method: 'get'
-    })
+      method: "get",
+    });
     if (response.ok) {
       const data = await response.json();
-      const redirect = data?.redirect
+      const redirect = data?.redirect;
       if (redirect) {
-        window.location.href = redirect
+        window.location.href = redirect;
       } else {
-        window.location.reload()
+        window.location.reload();
       }
     } else {
-      console.error('Failed to logout')
+      console.error("Failed to logout");
     }
-  })
-})
+  });
+});
 
 loginForm &&
   loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(loginForm);
     const response = await fetch(`${SITE_URL}/api/auth/signin`, {
-      method: 'POST',
-      body: formData
+      method: "POST",
+      body: formData,
     });
     if (response.ok) {
       const data = await response.json();
-      const redirect = data?.redirect
+      const redirect = data?.redirect;
       if (redirect) {
-        window.location.href = redirect
+        window.location.href = redirect;
       } else {
-        window.location.reload()
+        window.location.reload();
       }
     } else {
-      console.error('Failed to login')
+      console.error("Failed to login");
     }
     // closeModal(authModal);
   });
@@ -133,27 +116,26 @@ signupForm &&
     event.preventDefault();
     const formData = new FormData(signupForm);
     const response = await fetch(`${SITE_URL}/api/auth/signup`, {
-      method: 'POST',
-      body: formData
+      method: "POST",
+      body: formData,
     });
     if (response.ok) {
       const data = await response.json();
-      const redirect = data?.redirect
+      const redirect = data?.redirect;
       if (redirect) {
-        window.location.href = redirect
+        window.location.href = redirect;
       } else {
-        window.location.reload()
+        window.location.reload();
       }
     } else {
-      console.error('Failed to signup')
+      console.error("Failed to signup");
     }
     // closeModal(authModal);
   });
 
-loginBtns.forEach(btn => {
+loginBtns.forEach((btn) => {
   btn.addEventListener("click", () => openModal(authModal));
-})
-
+});
 
 authModalNavBtns &&
   authModalNavBtns.forEach((btn) => {
@@ -181,75 +163,20 @@ newRequestModal &&
     }
   });
 
+userBtn &&
+  userBtn.addEventListener("click", () => {
+    headerUserProfile?.classList?.add("active");
+  });
+
+document.body &&
+  document.body.addEventListener("click", (event) => {
+    if (
+      event.target.closest(".content__user") ||
+      event.target.closest(".content__user-profile ")
+    )
+      return;
+
+    headerUserProfile?.classList?.remove("active");
+  });
+
 setAuthModalState("login");
-
-deleteRequestBtns &&
-  deleteRequestBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      openModal(deleteRequestConfirmModal);
-    });
-  });
-
-deleteRequestConfirmModalBtns &&
-  deleteRequestConfirmModalBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      closeModal(deleteRequestConfirmModal);
-    });
-  });
-
-deleteRequestConfirmModal &&
-  deleteRequestConfirmModal.addEventListener("click", (event) => {
-    if (checkIfOuterClicked(event, deleteRequestConfirmModal)) {
-      closeModal(deleteRequestConfirmModal);
-    }
-  });
-
-editCategoriesBtn &&
-  editCategoriesBtn.addEventListener("click", () => {
-    openModal(editCategoriesModal);
-  });
-
-editCategoriesModal &&
-  editCategoriesModal.addEventListener("click", (event) => {
-    if (checkIfOuterClicked(event, editCategoriesModal)) {
-      closeModal(editCategoriesModal);
-    }
-  });
-
-editBtns &&
-  editBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      openModal(editRequestModal);
-    });
-  });
-
-editRequestModal &&
-  editRequestModal.addEventListener("click", (event) => {
-    if (checkIfOuterClicked(event, editRequestModal)) {
-      closeModal(editRequestModal);
-    }
-  });
-
-declineBtns &&
-  declineBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      openModal(declineRequestModal);
-    });
-  });
-
-declineRequestModal &&
-  declineRequestModal.addEventListener("click", (event) => {
-    if (checkIfOuterClicked(event, declineRequestModal)) {
-      closeModal(declineRequestModal);
-    }
-  });
-
-  userBtn && userBtn.addEventListener("click", () => {
-    headerUserProfile?.classList?.add('active')
-  })
-
-  document.body && document.body.addEventListener("click", (event) => {
-    if (event.target.closest('.content__user') || event.target.closest('.content__user-profile ')) return
-
-    headerUserProfile?.classList?.remove('active')
-  })

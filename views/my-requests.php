@@ -58,7 +58,7 @@ use app\models\Session;
                     <img src="<?= Router::getRoute($request->image) ?>" alt="" class="item__img" />
                     <div class="item__wrapper">
                       <ul class="wrapper__tags">
-                        <li class="tags__item"><?= $request->category->title ?></li>
+                        <li class="tags__item"><?= $request->category ? $request->category->title : '' ?></li>
                       </ul>
                       <h3 class="wrapper__title">
                         <?= $request->title ?>
@@ -77,7 +77,7 @@ use app\models\Session;
                     <img src="<?= Router::getRoute($request->image) ?>" alt="" class="item__img" />
                     <div class="item__wrapper">
                       <ul class="wrapper__tags">
-                        <li class="tags__item"><?= $request->category->title ?></li>
+                        <li class="tags__item"><?= $request->category ? $request->category->title : '' ?></li>
                       </ul>
                       <h3 class="wrapper__title">
                         <?= $request->title ?>
@@ -96,7 +96,7 @@ use app\models\Session;
                     <img src="<?= Router::getRoute($request->image) ?>" alt="image" class="item__img" />
                     <div class="item__wrapper">
                       <ul class="wrapper__tags">
-                        <li class="tags__item"><?= $request->category->title ?></li>
+                        <li class="tags__item"><?= $request->category ? $request->category->title : '' ?></li>
                       </ul>
                       <h3 class="wrapper__title">
                         <?= $request->title ?>

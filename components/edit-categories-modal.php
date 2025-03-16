@@ -12,7 +12,7 @@ $requestCategories = RequestCategory::all();
             <?php foreach ($requestCategories as $category) : ?>
                 <li>
                     <span><?= $category->title ?></span>
-                    <button type="button" delete-category="<?= $category->id ?>">Удалить</button>
+                    <button type="button" delete-category data-category-id="<?= $category->id ?>">Удалить</button>
                 </li>
             <?php endforeach; ?>
         </ul>

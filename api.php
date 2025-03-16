@@ -42,8 +42,8 @@ Router::put('/requests/%s/edit', [AdminRequestsController::class, 'edit']);
 Router::delete('/requests/%s/delete', [AdminRequestsController::class, 'delete']);
 
 Router::post('/request-categories/create', [AdminRequestCategoriesController::class, 'create']);
-Router::put('/requests-categories/%s/edit', [AdminRequestCategoriesController::class, 'edit']);
-Router::delete('/requests-categories/%s/delete', [AdminRequestCategoriesController::class, 'delete']);
+Router::put('/request-categories/%s/edit', [AdminRequestCategoriesController::class, 'edit']);
+Router::delete('/request-categories/%s/delete', [AdminRequestCategoriesController::class, 'delete']);
 
 Router::post('/users/create', [AdminUserController::class, 'create']);
 Router::put('/users/%s/edit', [AdminUserController::class, 'edit']);

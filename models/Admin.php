@@ -18,6 +18,11 @@ class Admin extends BaseModel
         return Request::create($data);
     }
 
+    public function create_request_category($data)
+    {
+        return RequestCategory::create($data);
+    }
+
     public function update_request_by_id($id, $data)
     {
         $request = Request::get_by_id($id);
@@ -26,9 +31,22 @@ class Admin extends BaseModel
         return $request;
     }
 
+    public function update_request_category_by_id($id, $data)
+    {
+        $request = RequestCategory::get_by_id($id);
+        $request->_update_all($data)->save();
+
+        return $request;
+    }
+
     public function delete_request_by_id($id)
     {
         return Request::get_by_id($id)->delete();
+    }
+
+    public function delete_request_category_by_id($id)
+    {
+        return RequestCategory::get_by_id($id)->delete();
     }
 
     public function create_user($data)
