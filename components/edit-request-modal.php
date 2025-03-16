@@ -3,10 +3,26 @@
         <h2 class="edit-request-modal__title">Обработка заявки</h2>
         <div class="edit-request-modal__content">
             <form class="content__form">
-                <input placeholder="Решение" type="text" class="form__field" />
+                <select name="status" class="form__status">
+                    <option value="new">Новая</option>
+                    <option value="in_progress">В решении</option>
+                    <option value="done">Решено</option>
+                    <option value="rejected">Отменено</option>
+                </select>
+                <input name="response" placeholder="Решение" type="text" class="form__field" />
                 <div class="form__image-field">
-                    <img src="" alt="Фото заявки" class="image-field__image" />
-                    <button type="button" class="image-field__button">Выбрать</button>
+                    <img src="" id="response-image" alt="Фото заявки" class="image-field__image" />
+                    <label class="image-field__button">
+                        <input type="file" name="response_image" style="display: none" onchange="
+                            const file = this.files[0];
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                document.getElementById('response-image').src = e.target.result;
+                            };
+                            reader.readAsDataURL(file);
+                        "/>
+                        <span>Выбрать</span>
+                    </label>
                 </div>
                 <button type="button" class="form__submit">Отправить</button>
             </form>

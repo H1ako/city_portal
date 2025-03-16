@@ -24,6 +24,25 @@
     flex-direction: column;
     gap: 3rem;
 
+    .form__status {
+      @include inputField;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-block: 1.5em;
+      outline: transparent;
+      border: none;
+      color: var(--color-text);
+      font-size: var(--font-szie-5);
+      width: 100%;
+
+      option {
+        color: black;
+      }
+    }
+
     .form__image-field {
       display: flex;
       flex-direction: column;

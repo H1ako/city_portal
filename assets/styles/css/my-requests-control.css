@@ -353,6 +353,36 @@
   flex-direction: column;
   gap: 3rem;
 }
+.edit-request-modal .content__form .form__status {
+  background: var(--color-el-bg);
+  border-radius: 0.75rem;
+  font-size: var(--font-size-5);
+  border: none;
+  outline: transparent;
+  padding: 1em 2em;
+  color: var(--color-text);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1.5em;
+  outline: transparent;
+  border: none;
+  color: var(--color-text);
+  font-size: var(--font-szie-5);
+  width: 100%;
+}
+.edit-request-modal .content__form .form__status::-moz-placeholder {
+  color: var(--color-text);
+  opacity: 0.25;
+}
+.edit-request-modal .content__form .form__status::placeholder {
+  color: var(--color-text);
+  opacity: 0.25;
+}
+.edit-request-modal .content__form .form__status option {
+  color: black;
+}
 .edit-request-modal .content__form .form__image-field {
   display: flex;
   flex-direction: column;

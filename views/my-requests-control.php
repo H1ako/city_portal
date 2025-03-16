@@ -83,9 +83,9 @@ $requests = Request::all();
                       <button edit-request class="actions__delete">
                         Редактировать
                       </button>
-                      <button decline-request class="actions__delete">
+                      <!-- <button decline-request class="actions__delete">
                         Отклонить
-                      </button>
+                      </button> -->
                       <span class="actions__status" data-status="solved"
                         >Решено</span
                       >
@@ -111,9 +111,9 @@ $requests = Request::all();
                       <button edit-request class="actions__delete">
                         Редактировать
                       </button>
-                      <button decline-request class="actions__delete">
+                      <!-- <button decline-request class="actions__delete">
                         Отклонить
-                      </button>
+                      </button> -->
                       <span class="actions__status" data-status="rejected"
                         >Отклонено</span
                       >
@@ -139,9 +139,9 @@ $requests = Request::all();
                       <button edit-request class="actions__delete">
                         Редактировать
                       </button>
-                      <button decline-request class="actions__delete">
+                      <!-- <button decline-request class="actions__delete">
                         Отклонить
-                      </button>
+                      </button> -->
                       <span class="actions__status" data-status="waiting"
                         >На рассмотрении</span
                       >
