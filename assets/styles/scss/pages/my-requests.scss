@@ -145,6 +145,11 @@
         margin-block: 4rem;
       }
 
+      &__empty {
+        font-size: var(--font-size-4);
+        color: var(--color-fail);
+      }
+
       &__list {
         display: flex;
         flex-direction: column;

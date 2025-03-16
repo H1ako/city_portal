@@ -373,6 +373,10 @@
   font-size: var(--font-size-1);
   margin-block: 4rem;
 }
+.main-content__news .content__empty {
+  font-size: var(--font-size-4);
+  color: var(--color-fail);
+}
 .main-content__news .content__list {
   display: flex;
   flex-direction: column;

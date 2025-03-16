@@ -27,7 +27,7 @@ class Session
     }
 
     public static function check() {
-        return isset($_SESSION['sessionkey']);
+        return static::user() != null;
     }
 
     public static function user() {

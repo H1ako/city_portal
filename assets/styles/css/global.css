@@ -327,6 +327,8 @@ body {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 fieldset {
@@ -792,6 +794,10 @@ button {
   width: var(--width-content);
   margin: 0 auto;
   padding: 1.5rem 0.75rem;
+}
+
+.main-content {
+  flex-grow: 1;
 }
 
 .appear-animation {
