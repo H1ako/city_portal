@@ -51,17 +51,16 @@
                 <h3 class="wrapper__title">
                   Февраль в Москве будет на 3–4 градуса теплее нормы
                 </h3>
-
-                <div class="wrapper__secondary-actions">
-                  <button class="secondary-actions__more">Подробнее</button>
-                  <time class="secondary-actions__date">12 января 2024</time>
-                </div>
+                
                 <div class="wrapper__actions">
-                  <button delete-request class="actions__delete">Удалить</button>
                   <span class="actions__status" data-status="solved"
                     >Решено</span
                   >
                 </div>
+                <div class="wrapper__secondary-actions">
+                  <button class="secondary-actions__more">Подробнее</button>
+                  <time class="secondary-actions__date">12 января 2024</time>
+                </div>
               </div>
             </li>
             <li class="list__item">
@@ -74,17 +73,16 @@
                 <h3 class="wrapper__title">
                   Февраль в Москве будет на 3–4 градуса теплее нормы
                 </h3>
-
-                <div class="wrapper__secondary-actions">
-                  <button class="secondary-actions__more">Подробнее</button>
-                  <time class="secondary-actions__date">12 января 2024</time>
-                </div>
+                
                 <div class="wrapper__actions">
-                  <button delete-request class="actions__delete">Удалить</button>
                   <span class="actions__status" data-status="rejected"
                     >Отклонено</span
                   >
                 </div>
+                <div class="wrapper__secondary-actions">
+                  <button class="secondary-actions__more">Подробнее</button>
+                  <time class="secondary-actions__date">12 января 2024</time>
+                </div>
               </div>
             </li>
             <li class="list__item">
@@ -97,16 +95,15 @@
                 <h3 class="wrapper__title">
                   Февраль в Москве будет на 3–4 градуса теплее нормы
                 </h3>
-
-                <div class="wrapper__secondary-actions">
-                  <button class="secondary-actions__more">Подробнее</button>
-                  <time class="secondary-actions__date">12 января 2024</time>
-                </div>
+                
                 <div class="wrapper__actions">
-                  <button delete-request class="actions__delete">Удалить</button>
                   <span class="actions__status" data-status="waiting"
                     >На рассмотрении</span
                   >
+                </div>
+                <div class="wrapper__secondary-actions">
+                  <button class="secondary-actions__more">Подробнее</button>
+                  <time class="secondary-actions__date">12 января 2024</time>
                 </div>
               </div>
             </li>
@@ -118,6 +115,5 @@
     <?php include_once('components/footer.php'); ?>
     <?php include_once('components/auth-modal.php'); ?>
     <?php include_once('components/new-request-modal.php'); ?>
-    <?php include_once('components/delete-request-confirm-modal.php'); ?>
   </body>
 </html>
