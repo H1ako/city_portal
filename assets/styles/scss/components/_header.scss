@@ -9,6 +9,7 @@
   height: 8rem;
   border-bottom: 1px solid var(--color-delimeter);
   z-index: 999;
+  backdrop-filter: blur(14px);
 
   .content {
     display: flex;

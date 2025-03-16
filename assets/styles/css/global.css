@@ -569,6 +569,8 @@ button {
   height: 8rem;
   border-bottom: 1px solid var(--color-delimeter);
   z-index: 999;
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
 }
 .header .content {
   display: flex;
