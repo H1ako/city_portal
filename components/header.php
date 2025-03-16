@@ -14,12 +14,13 @@ use app\models\Session;
                     <?php if (Session::user()->is_admin) : ?>
                         <li><a class="dropdown__link" href="<?= Router::getRoute('/admin') ?>">Админка</a></li>
                     <?php endif; ?>
+                    <li><a class="dropdown__link" href="<?= Router::getRoute('/profile') ?>">Профиль</a></li>
                     <li><a class="dropdown__link" href="<?= Router::getRoute('/my-requests') ?>">Мои заявки</a></li>
                     <li><button class="dropdown__link" logout-btn href="<?= Router::getRoute('/api/auth/logout') ?>">Выйти</button></li>
                 </ul>
             </div>
         <?php else: ?>
-        <button class="content__login" open-auth-modal>Вход/Регистрация</button>
+            <button class="content__login" open-auth-modal>Вход/Регистрация</button>
         <?php endif; ?>
     </div>
 </header>

@@ -18,10 +18,10 @@ class Session
         $this->key = $session_key;
     }
 
-    public function get_csrf_token()
+    public static function get_csrf_token()
     {
         if (!isset($_SESSION['csrf'])) {
-            $this->generate_csrf_token();
+            static::generate_csrf_token();
         }
         return $_SESSION['csrf'];
     }
@@ -38,12 +38,12 @@ class Session
         return null;
     }
 
-    public function set_csrf()
+    public static function set_csrf()
     {
-        echo '<input type="hidden" name="csrf" value="' . $this->get_csrf_token() . '">';
+        echo '<input type="hidden" name="csrf" value="' . static::get_csrf_token() . '">';
     }
 
-    protected function generate_csrf_token()
+    protected static function generate_csrf_token()
     {
         $_SESSION['csrf'] = bin2hex(random_bytes(32));
     }

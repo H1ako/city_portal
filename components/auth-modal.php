@@ -1,9 +1,6 @@
 <?php
 
 use app\models\Session;
-
-$session = Session::get();
-
 ?>
 
 <dialog class="auth-modal" id="auth-modal">
@@ -19,7 +16,7 @@ $session = Session::get();
     </nav>
     <div class="auth-modal__content">
         <form class="content__form content__login" id="login-form">
-            <?php $session->set_csrf() ?>
+            <?php Session::set_csrf() ?>
             <input name="email" required type="email" class="form__field" placeholder="Email*" />
             <input name="password" required type="password" class="form__field" placeholder="Пароль*" />
             <label class="form__checkbox-field">

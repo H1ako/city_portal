@@ -12,6 +12,7 @@ global $SITE_URL;
 $session = Session::get();
 
 Router::get('/', 'views/index.php');
+Router::get('/profile', 'views/profile.php');
 Router::get('/my-requests', 'views/my-requests.php');
 
 

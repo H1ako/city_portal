@@ -1,6 +1,7 @@
 <?php
 
 use app\models\RequestCategory;
+use app\models\Session;
 
 $categories = RequestCategory::all();
 ?>
@@ -8,6 +9,7 @@ $categories = RequestCategory::all();
     <h2 class="new-request-modal__title">Новая заявка</h2>
     <div class="new-request-modal__content">
         <form class="content__form" id="new-request-form">
+            <?php Session::set_csrf() ?>
             <div class="form__left">
                 <div class="left__image-field">
                     <img src="" alt="Фото заявки*" class="image-field__image" id="new-request-image" />
