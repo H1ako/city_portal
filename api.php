@@ -27,7 +27,7 @@ Router::get('/auth/logout', [UserController::class, 'logout']);
 if (!Session::check()) {
     return Router::not_found();
 }
-Router::put('/user/settings/edit', [UserController::class, 'edit_settings']);
+Router::post('/user/settings/edit', [UserController::class, 'edit_settings']);
 
 Router::post('/requests/create', [RequestsController::class, 'create']);
 
@@ -38,15 +38,15 @@ Router::set_route_prefix('api/admin');
 
 
 Router::post('/requests/create', [AdminRequestsController::class, 'create']);
-Router::put('/requests/%s/edit', [AdminRequestsController::class, 'edit']);
+Router::post('/requests/%s/edit', [AdminRequestsController::class, 'edit']);
 Router::delete('/requests/%s/delete', [AdminRequestsController::class, 'delete']);
 
 Router::post('/request-categories/create', [AdminRequestCategoriesController::class, 'create']);
-Router::put('/request-categories/%s/edit', [AdminRequestCategoriesController::class, 'edit']);
+Router::post('/request-categories/%s/edit', [AdminRequestCategoriesController::class, 'edit']);
 Router::delete('/request-categories/%s/delete', [AdminRequestCategoriesController::class, 'delete']);
 
 Router::post('/users/create', [AdminUserController::class, 'create']);
-Router::put('/users/%s/edit', [AdminUserController::class, 'edit']);
+Router::post('/users/%s/edit', [AdminUserController::class, 'edit']);
 Router::delete('/users/%s/delete', [AdminUserController::class, 'delete']);
 
 

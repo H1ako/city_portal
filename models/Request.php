@@ -23,7 +23,7 @@ class Request extends BaseModel
     protected $category_data;
     protected $user_data;
 
-    protected $statuses = [
+    protected static $statuses = [
         'new' => 'New',
         'in_progress' => 'In progress',
         'rejected' => 'Rejected',

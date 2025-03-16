@@ -18,13 +18,39 @@ const editCategoriesModal = document.querySelector("#edit-categories-modal");
 const declineBtns = document.querySelectorAll("[decline-request]");
 const declineRequestModal = document.querySelector("#decline-request-modal");
 
+editRequestModal &&
+  editRequestModal.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+    const requestId = form.dataset.requestId;
+
+    const response = await fetch(`${SITE_URL}/api/admin/requests/${requestId}/edit`, {
+      method: 'post',
+      body: formData,
+    });
+
+    if (response.ok) {
+      closeModal(editRequestModal);
+      window.location.reload();
+    } else {
+      console.error("Failed to edit request");
+    }
+  });
+
 deleteCategoryBtns.forEach((btn) => {
   btn.addEventListener("click", async () => {
     const categoryId = btn.dataset.categoryId;
-    const response = await fetch(`${SITE_URL}/api/admin/request-categories/${categoryId}/delete`, {
-      method: "DELETE",
-      body: JSON.stringify({ csrf: document.querySelector("meta[name=csrf]").content }),
-    });
+    const response = await fetch(
+      `${SITE_URL}/api/admin/request-categories/${categoryId}/delete`,
+      {
+        method: "DELETE",
+        body: JSON.stringify({
+          csrf: document.querySelector("meta[name=csrf]").content,
+        }),
+      }
+    );
 
     if (response.ok) {
       btn.closest("li").remove();
@@ -63,6 +89,10 @@ editCategoriesModal &&
 editBtns &&
   editBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
+        editRequestModal.querySelector("[status-field]").value = btn.dataset.status;
+        editRequestModal.querySelector("[response-field]").value = btn.dataset.response;
+        editRequestModal.querySelector("[response-image-field]").src = btn.dataset.responseImage;
+        editRequestModal.querySelector("form").dataset.requestId = btn.dataset.id;
       openModal(editRequestModal);
     });
   });

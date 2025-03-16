@@ -81,7 +81,7 @@ $requests = Request::all();
                       </button>
                     </div>
                     <div class="wrapper__actions">
-                      <button edit-request class="actions__delete">
+                      <button edit-request class="actions__delete" data-id="<?= $request->id ?>" data-response="<?= $request->response ?>" data-response-image="<?= Router::getRoute($request->response_image) ?>" data-status="<?= $request->status ?>">
                         Редактировать
                       </button>
                       <!-- <button decline-request class="actions__delete">
@@ -109,7 +109,7 @@ $requests = Request::all();
                       </button>
                     </div>
                     <div class="wrapper__actions">
-                      <button edit-request class="actions__delete">
+                      <button edit-request class="actions__delete" data-id="<?= $request->id ?>" data-response="<?= $request->response ?>" data-response-image="<?= Router::getRoute($request->response_image) ?>" data-status="<?= $request->status ?>">
                         Редактировать
                       </button>
                       <!-- <button decline-request class="actions__delete">
@@ -137,7 +137,7 @@ $requests = Request::all();
                       </button>
                     </div>
                     <div class="wrapper__actions">
-                      <button edit-request class="actions__delete">
+                      <button edit-request class="actions__delete" data-id="<?= $request->id ?>" data-response="<?= $request->response ?>" data-response-image="<?= Router::getRoute($request->response_image) ?>" data-status="<?= $request->status ?>">
                         Редактировать
                       </button>
                       <!-- <button decline-request class="actions__delete">

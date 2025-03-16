@@ -82,6 +82,7 @@ class Router
     
     if (in_array($_SERVER['REQUEST_METHOD'], $unsafeMethods, true)) {
       if ($session->is_authed && $session->user->is_admin && $_SERVER['REQUEST_METHOD'] === 'POST') return true;
+
       if (count($_POST) == 0) {
         $_POST = json_decode(file_get_contents('php://input'), true);
       }

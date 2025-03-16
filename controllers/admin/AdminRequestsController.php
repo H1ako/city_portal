@@ -57,19 +57,19 @@ class AdminRequestsController extends Controller
         $statuses = implode(',', Request::get_statuses());
         $data = static::get_post_data([
             'image' => 'image',
-            'title' => 'name',
-            'description' => 'desc',
+            'title' => 'title',
+            'description' => 'description',
             'category_id' => 'category_id',
             'status' => 'status',
             'response_image' => 'response_image',
             'response' => 'response',
         ]);
         $is_validated = static::validate_data($data, [
-            'image' => 'required|file',
-            'title' => 'required|string',
-            'description' => 'required|string',
-            'category_id' => 'required|int',
-            'status' => "requried|in:$statuses",
+            'image' => 'file',
+            'title' => 'string',
+            'description' => 'string',
+            'category_id' => 'int',
+            'status' => "in:$statuses",
             'response_image' => 'file',
             'response' => 'string',
         ]);
