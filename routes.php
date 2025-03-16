@@ -6,10 +6,12 @@ require_once __DIR__ . '/core/router.php';
 
 
 use app\models\Session;
+use app\models\Stat;
 
 global $SITE_URL;
 
 $session = Session::get();
+Stat::increase_by_key('visits_count');
 
 Router::get('/', 'views/index.php');
 

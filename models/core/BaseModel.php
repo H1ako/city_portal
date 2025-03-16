@@ -195,7 +195,11 @@ abstract class BaseModel
             }
         }
 
-        $stmt = static::$conn->prepare('INSERT INTO ' . static::$table_name . ' (' . implode(',', array_keys($data)) . ') VALUES (' . implode(',', array_fill(0, count($data), '?')) . ')');
+        $field_names = array_map(function($field) {
+            return "`$field`";
+        }, array_keys($data));
+    
+        $stmt = static::$conn->prepare('INSERT INTO ' . static::$table_name . ' (' . implode(',', $field_names) . ') VALUES (' . implode(',', array_fill(0, count($data), '?')) . ')');
         $stmt->bind_param(str_repeat('s', count($data)), ...array_values($data));
         if (!$stmt->execute()) {
             $stmt->close();
@@ -256,7 +260,7 @@ abstract class BaseModel
 
         foreach ($fields as $field) {
             if (isset($this->$field)) {
-                $updates[] = "$field = ?";
+                $updates[] = "`$field` = ?";
                 $values[] = $this->$field;
             }
         }

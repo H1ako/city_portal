@@ -5,18 +5,18 @@ require_once __DIR__ . '/core/router.php';
 
 use app\models\Session;
 
-use app\controllers\ServiceHistoryController;
 use app\controllers\UserController;
 
 use app\controllers\admin\AdminUserController;
 use app\controllers\admin\AdminRequestCategoriesController;
 use app\controllers\admin\AdminRequestsController;
 use app\controllers\RequestsController;
+use app\models\Stat;
 
 global $SITE_URL;
 
 $session = Session::get();
-
+Stat::increase_by_key('api_requests_count');
 
 Router::set_route_prefix('api');
 
