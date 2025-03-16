@@ -107,11 +107,6 @@ class Router
     $route = $DEV_URL_PART . $route;
 
     $callback = $path_to_include;
-    if (!is_callable($callback)) {
-      if (!strpos($path_to_include, '.php')) {
-        $path_to_include .= '.php';
-      }
-    }
     if (is_array($callback)) {
       $callback = function (...$args) use ($callback) {
         [$class, $method] = $callback;
@@ -123,6 +118,11 @@ class Router
           throw new Exception("Class `$class` or method `$method` does not exist.");
         }
       };
+    }
+    else if (!is_callable($callback)) {
+      if (!strpos($path_to_include, '.php')) {
+        $path_to_include .= '.php';
+      }
     }
     $request_url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
     $request_url = rtrim($request_url, '/');

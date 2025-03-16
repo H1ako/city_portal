@@ -11,7 +11,7 @@ use app\controllers\UserController;
 use app\controllers\admin\AdminUserController;
 use app\controllers\admin\AdminRequestCategoriesController;
 use app\controllers\admin\AdminRequestsController;
-use app\controllers\admin\RequestsController;
+use app\controllers\RequestsController;
 
 global $SITE_URL;
 

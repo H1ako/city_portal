@@ -9,7 +9,7 @@ class Request extends BaseModel
 {
     protected static $table_name = 'requests';
 
-    protected static $public_fields = ['title', 'image', 'description', 'status', 'response_image', 'response'];
+    protected static $public_fields = ['title', 'image', 'description', 'status', 'response_image', 'response', 'user_id', 'category_id'];
 
     public $title;
     public $description;
@@ -18,6 +18,7 @@ class Request extends BaseModel
     public $response;
     public $image;
     public $category_id;
+    public $user_id;
     
     protected $category_data;
     protected $user_data;

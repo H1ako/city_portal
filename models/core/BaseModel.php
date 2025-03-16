@@ -163,8 +163,6 @@ abstract class BaseModel
     public static function get_by_id($id)
     {
         return static::_get_by_field_protected('id', $id);
-
-        return $data ? new static($data) : null;
     }
 
 

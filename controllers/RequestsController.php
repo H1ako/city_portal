@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers\admin;
+namespace app\controllers;
 
 use app\controllers\core\Controller;
 use app\models\Request;
@@ -14,13 +14,13 @@ class RequestsController extends Controller
 
     public static function create()
     {
-        $admin = Session::user()->admin;
+        $user = Session::user();
 
         $data = static::get_post_data([
             'image' => 'image',
-            'title' => 'name',
-            'description' => 'desc',
-            'category_id' => 'category',
+            'title' => 'title',
+            'description' => 'description',
+            'category' => 'category_id',
         ]);
         $is_validated = static::validate_data($data, [
             'image' => 'file',
@@ -32,11 +32,12 @@ class RequestsController extends Controller
             return static::response_error(400, 'Invalid data');
         }
 
-        $request = $admin->create_request($data);
+        $request = Request::create(array_merge($data, ['user_id' => $user->id]));
 
         if ($request) {
             return static::response_success([
                 'request' => $request->to_array(),
+                'redirect' => '/my-requests'
             ], 'Request created successfully');
         }
 

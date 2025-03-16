@@ -31,6 +31,8 @@ const loginForm = document.querySelector("#login-form");
 const signupForm = document.querySelector("#signup-form");
 const logoutBtns = document.querySelectorAll("[logout-btn]");
 
+const newRequestForm = document.querySelector("#new-request-form");
+
 function openModal(modal) {
   if (!modal) return;
 
@@ -63,13 +65,41 @@ function setAuthModalState(state) {
   authModal.dataset.state = state;
 }
 
+newRequestForm &&
+  newRequestForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(newRequestForm);
+    const response = await fetch(`${SITE_URL}/api/requests/create`, {
+      method: 'POST',
+      body: formData
+    });
+    if (response.ok) {
+      const data = await response.json();
+      const redirect = data?.redirect
+      if (redirect) {
+        window.location.href = redirect
+      } else {
+        window.location.reload()
+      }
+    } else {
+      console.error('Failed to create new request')
+    }
+    // closeModal(newRequestModal);
+  });
+
 logoutBtns.forEach(btn => {
   btn.addEventListener('click', async () => {
     const response = await fetch(`${SITE_URL}/api/auth/logout`, {
       method: 'get'
     })
     if (response.ok) {
-      window.location.reload()
+      const data = await response.json();
+      const redirect = data?.redirect
+      if (redirect) {
+        window.location.href = redirect
+      } else {
+        window.location.reload()
+      }
     } else {
       console.error('Failed to logout')
     }

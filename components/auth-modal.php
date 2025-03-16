@@ -26,7 +26,7 @@ use app\models\Session;
             <button type="submit" class="form__submit" type="submit">Вход</button>
         </form>
         <form class="content__form content__register" id="signup-form">
-            <?php $session->set_csrf() ?>
+            <?php Session::set_csrf() ?>
             <input name="email" required type="email" class="form__field" placeholder="Email*" />
             <input name="first_name" required type="text" class="form__field" placeholder="Имя*" />
             <input name="last_name" required type="text" class="form__field" placeholder="Фамилия*" />
