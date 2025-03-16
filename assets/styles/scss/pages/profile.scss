@@ -1,0 +1,175 @@
+@import "../main/mixins";
+//------COMPONENTS------
+@import "../components/new-request-modal";
+@import "../components/delete-request-confirm-modal";
+
+.main-content {
+  position: relative;
+  width: 100%;
+
+  &__hero {
+    padding-top: 8rem;
+    position: relative;
+    width: 100%;
+    background: url("/city_portal/assets/images/bg.jpg") no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--color-bg);
+      opacity: 0.75;
+      z-index: 0;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 10vh;
+
+      &__left {
+        position: relative;
+        width: 60%;
+
+        .left__action-btn {
+          @include button;
+        }
+      }
+
+      &__right {
+        position: relative;
+        width: 20%;
+
+        .right__requests-counter {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2.5rem;
+
+          .requests-counter__num-tabs {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+
+            .num-tabs__item {
+              flex: 1 1 100%;
+              position: relative;
+              //   flex-shrink: 0;
+              z-index: 1;
+              width: 3rem;
+              height: 4em;
+
+              .delimeter {
+                position: absolute;
+                height: 1px;
+                background: var(--color-bg);
+                width: 100%;
+                top: 50%;
+                left: 0;
+                z-index: 4;
+                opacity: 0.25;
+              }
+
+              span {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                background: var(--color-text);
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+                // padding: 0.5rem 1rem;
+                font-size: var(--font-size-2);
+                font-weight: 500;
+                border-radius: 0.5rem;
+                z-index: 3;
+                color: var(--color-bg);
+              }
+
+              &::after,
+              &::before {
+                content: "";
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: var(--color-text);
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+                border-radius: 0.5rem;
+                z-index: 1;
+              }
+
+              &::after {
+                height: 105%;
+              }
+
+              &::before {
+                height: 110%;
+                outline: 2px solid var(--color-accent);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__news {
+    position: relative;
+    width: 100%;
+
+    .news__bg-title {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      translate: -50% 0;
+      font-size: var(--font-size-bg-title);
+      opacity: 0.05;
+      line-height: 0.9;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+
+      &__main-title {
+        font-size: var(--font-size-1);
+        margin-block: 4rem;
+      }
+
+      &__empty {
+        font-size: var(--font-size-4);
+        color: var(--color-fail);
+      }
+
+      .content__settings-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+
+        .settings-form__field {
+          @include inputField;
+
+          width: 50em;
+          max-width: 100%;
+          backdrop-filter: blur(20px);
+        }
+
+        .settings-form__submit {
+          @include button;
+          margin: 3rem auto 0 auto;
+          padding-inline: 3.5em;
+        }
+      }
+    }
+  }
+}

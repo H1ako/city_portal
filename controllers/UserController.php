@@ -68,10 +68,12 @@ class UserController extends Controller
     {
         $session = Session::get();
 
-        $data = static::get_post_data(['first_name' => 'first_name', 'last_name' => 'last_name']);
+        $data = static::get_post_data(['email' => 'email', 'password' => 'password', 'first_name' => 'first_name', 'last_name' => 'last_name']);
         $is_validated = static::validate_data($data, [
-            'first_name' => 'required|string|min:4|max:60',
-            'last_name' => 'required|string|min:4|max:60',
+            'first_name' => 'string|min:4|max:60',
+            'last_name' => 'string|min:4|max:60',
+            'email' => 'email',
+            'password' => 'string',
         ]);
         if (!$is_validated) {
             return static::response_error(400, 'Invalid data');

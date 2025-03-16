@@ -12,11 +12,15 @@ global $SITE_URL;
 $session = Session::get();
 
 Router::get('/', 'views/index.php');
+
+if (!Session::user()) {
+  return Router::redirect_to('/');
+} 
+
 Router::get('/profile', 'views/profile.php');
 Router::get('/my-requests', 'views/my-requests.php');
 
-
-if (Session::user() && Session::user()->is_admin) {
+if (Session::user()->is_admin) {
   Router::get('/admin', 'views/my-requests-control.php');
 }
 

@@ -15,6 +15,7 @@ const signupForm = document.querySelector("#signup-form");
 const logoutBtns = document.querySelectorAll("[logout-btn]");
 
 const newRequestForm = document.querySelector("#new-request-form");
+const settingsForm = document.querySelector("#settings-form");
 
 function openModal(modal) {
   if (!modal) return;
@@ -47,6 +48,27 @@ function setAuthModalState(state) {
 
   authModal.dataset.state = state;
 }
+
+settingsForm &&
+  settingsForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(settingsForm);
+    const response = await fetch(`${SITE_URL}/api/user/settings/edit`, {
+      method: "POST",
+      body: formData,
+    });
+    if (response.ok) {
+      const data = await response.json();
+      const redirect = data?.redirect;
+      if (redirect) {
+        window.location.href = redirect;
+      } else {
+        window.location.reload();
+      }
+    } else {
+      console.error("Failed to update settings");
+    }
+  });
 
 newRequestForm &&
   newRequestForm.addEventListener("submit", async (event) => {
