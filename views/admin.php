@@ -6,9 +6,9 @@ use app\models\User;
 
 global $SITE_URL, $session;
 
-$users = User::get_all();
-$services = Service::get_all();
-$orders = ServiceHistory::get_all();
+$users = User::all();
+$services = Service::all();
+$orders = ServiceHistory::all();
 ?>
 <!DOCTYPE html>
 <html>

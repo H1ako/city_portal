@@ -39,6 +39,7 @@
   color: var(--color-bg);
   padding: 0.75em 2.5em;
   font-weight: 500;
+  cursor: pointer;
 
   &:before {
     content: "";
@@ -91,4 +92,9 @@
   word-break: break-all;
   word-break: break-word;
   hyphens: auto;
+}
+
+@mixin mainShadow {
+  box-shadow: 0px 0.6em 1.2em rgba(74, 66, 184, 0.25),
+    0px 0px 0.1em rgba(74, 66, 184, 0.25);
 }

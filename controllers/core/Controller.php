@@ -143,6 +143,7 @@ abstract class Controller
             if ($part === 'datetime' && !preg_match('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}(:\d{2})?$/', $value)) return false;
             if (strpos($part, 'min:') !== false && strlen($value) < substr($part, 4)) return false;
             if (strpos($part, 'max:') !== false && strlen($value) > substr($part, 4)) return false;
+            if (strpos($part, 'in:') !== false && !in_array($value, explode(',', substr($part, 3)))) return false;
             if ($part === 'file') {
                 if (!is_array($value) || !isset($value['name'], $value['type'], $value['size'], $value['tmp_name'], $value['error'])) {
                     return false;

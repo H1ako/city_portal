@@ -20,15 +20,6 @@ class Admin extends BaseModel
 
     public function update_request_by_id($id, $data)
     {
-        if (isset($data['image'])) {
-            $uploaded = static::upload_image($data['image']);
-            if ($uploaded) {
-                $data['image'] = $uploaded;
-            } else {
-                unset($data['image']);
-            }
-        }
-
         $request = Request::get_by_id($id);
         $request->_update_all($data)->save();
 

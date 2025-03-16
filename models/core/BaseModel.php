@@ -137,7 +137,7 @@ abstract class BaseModel
         }
     }
 
-    public static function get_all()
+    public static function all()
     {
         static::connect();
 

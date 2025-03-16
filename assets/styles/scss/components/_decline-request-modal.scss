@@ -1,4 +1,6 @@
-.edit-request-modal {
+@import "../main/mixins";
+
+.decline-request-modal {
   padding: 4rem;
   width: min(100vw - 2rem, 40rem);
   background: var(--color-bg);
@@ -52,6 +54,9 @@
 
     .form__field {
       @include inputField;
+
+      resize: vertical;
+      min-height: 20rem;
     }
 
     .form__submit {

@@ -9,20 +9,39 @@ class Request extends BaseModel
 {
     protected static $table_name = 'requests';
 
-    protected static $public_fields = ['title', 'image'];
+    protected static $public_fields = ['title', 'image', 'description', 'status', 'response_image', 'response'];
 
     public $title;
     public $description;
+    public $status;
+    public $response_image;
+    public $response;
     public $image;
     public $category_id;
     
     protected $category_data;
     protected $user_data;
 
+    protected $statuses = [
+        'new' => 'New',
+        'in_progress' => 'In progress',
+        'rejected' => 'Rejected',
+        'done' => 'Done',
+    ];
+
+    public static function get_statuses() {
+        return array_keys(static::$statuses);
+    }
 
     public function get_image_url_attribute()
     {
         $src = $this->image;
+        return Router::getUploads($src);
+    }
+
+    public function get_response_image_attribute()
+    {
+        $src = $this->response_image;
         return Router::getUploads($src);
     }
 
@@ -69,6 +88,14 @@ class Request extends BaseModel
                 unset($data['image']);
             }
         }
+        if (isset($data['response_image'])) {
+            $uploaded = static::upload_image($data['response_image']);
+            if ($uploaded) {
+                $data['response_image'] = $uploaded;
+            } else {
+                unset($data['response_image']);
+            }
+        }
 
         return parent::create($data);
     }
@@ -83,7 +110,36 @@ class Request extends BaseModel
                 unset($data['image']);
             }
         }
+        if (isset($data['response_image'])) {
+            $uploaded = static::upload_image($data['response_image']);
+            if ($uploaded) {
+                $data['response_image'] = $uploaded;
+            } else {
+                unset($data['response_image']);
+            }
+        }
 
         return parent::update($data);
+    }
+
+    public function _update_all($data) {
+        if (isset($data['image'])) {
+            $uploaded = static::upload_image($data['image']);
+            if ($uploaded) {
+                $data['image'] = $uploaded;
+            } else {
+                unset($data['image']);
+            }
+        }
+        if (isset($data['response_image'])) {
+            $uploaded = static::upload_image($data['response_image']);
+            if ($uploaded) {
+                $data['response_image'] = $uploaded;
+            } else {
+                unset($data['response_image']);
+            }
+        }
+
+        return parent::_update_all($data);
     }
 }

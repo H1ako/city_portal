@@ -47,6 +47,7 @@
   color: var(--color-bg);
   padding: 0.75em 2.5em;
   font-weight: 500;
+  cursor: pointer;
   border: 2px solid var(--color-text);
   background: none;
   color: var(--color-text);
@@ -128,6 +129,7 @@
   color: var(--color-bg);
   padding: 0.75em 2.5em;
   font-weight: 500;
+  cursor: pointer;
   background: var(--color-bg);
   color: var(--color-text);
 }
@@ -141,6 +143,31 @@
   z-index: -1;
 }
 .new-request-modal__content .content__form .form__right .right__category button:hover:before, .new-request-modal__content .content__form .form__right .right__category button:focus-within:focus-visible:before {
+  filter: brightness(0.8);
+}
+.new-request-modal__content .content__form .form__right .right__submit {
+  position: relative;
+  border-radius: 0.5em;
+  z-index: 1;
+  background: var(--color-main);
+  color: var(--color-bg);
+  padding: 0.75em 2.5em;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 0.75em 2.5em;
+}
+.new-request-modal__content .content__form .form__right .right__submit:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: var(--transition-main);
+  background: inherit;
+  border-radius: 0.5em;
+  z-index: -1;
+}
+.new-request-modal__content .content__form .form__right .right__submit:hover:before, .new-request-modal__content .content__form .form__right .right__submit:focus-within:focus-visible:before {
   filter: brightness(0.8);
 }
 
@@ -189,6 +216,7 @@
   color: var(--color-bg);
   padding: 0.75em 2.5em;
   font-weight: 500;
+  cursor: pointer;
   margin-top: 4rem;
 }
 .main-content__hero .content__left .left__action-btn:before {
@@ -361,6 +389,7 @@
   color: var(--color-bg);
   padding: 0.75em 2.5em;
   font-weight: 500;
+  cursor: pointer;
 }
 .main-content__news .content__list .list__item .item__wrapper .wrapper__actions .actions__more:before {
   content: "";
@@ -386,6 +415,7 @@
   color: var(--color-bg);
   padding: 0.75em 2.5em;
   font-weight: 500;
+  cursor: pointer;
   margin: 3rem auto 0 auto;
   padding-inline: 3.5em;
 }
