@@ -28,5 +28,29 @@
       color: var(--color-text);
       font-size: var(--font-size-4);
     }
+
+    .content__profile {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+
+      .profile__dropdown {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+      }
+
+      .dropdown__link,
+      .profile__preview {
+        @include cleanLink;
+
+        background: none;
+        color: var(--color-text);
+
+        &.link_logout {
+          color: var(--color-fail);
+        }
+      }
+    }
   }
 }

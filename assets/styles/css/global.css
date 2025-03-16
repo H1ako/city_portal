@@ -591,6 +591,33 @@ button {
   color: var(--color-text);
   font-size: var(--font-size-4);
 }
+.header .content .content__profile {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+.header .content .content__profile .profile__dropdown {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.header .content .content__profile .dropdown__link,
+.header .content .content__profile .profile__preview {
+  text-decoration: none;
+  transition: var(--transition-main);
+  cursor: pointer;
+  outline: transparent;
+  background: none;
+  color: var(--color-text);
+}
+.header .content .content__profile .dropdown__link svg,
+.header .content .content__profile .profile__preview svg {
+  width: 1em;
+}
+.header .content .content__profile .dropdown__link.link_logout,
+.header .content .content__profile .profile__preview.link_logout {
+  color: var(--color-fail);
+}
 
 .footer {
   width: var(--width-content);

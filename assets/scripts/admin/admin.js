@@ -26,10 +26,13 @@ editRequestModal &&
     const formData = new FormData(form);
     const requestId = form.dataset.requestId;
 
-    const response = await fetch(`${SITE_URL}/api/admin/requests/${requestId}/edit`, {
-      method: 'post',
-      body: formData,
-    });
+    const response = await fetch(
+      `${SITE_URL}/api/admin/requests/${requestId}/edit`,
+      {
+        method: "post",
+        body: formData,
+      }
+    );
 
     if (response.ok) {
       closeModal(editRequestModal);
@@ -89,10 +92,13 @@ editCategoriesModal &&
 editBtns &&
   editBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-        editRequestModal.querySelector("[status-field]").value = btn.dataset.status;
-        editRequestModal.querySelector("[response-field]").value = btn.dataset.response;
-        editRequestModal.querySelector("[response-image-field]").src = btn.dataset.responseImage;
-        editRequestModal.querySelector("form").dataset.requestId = btn.dataset.id;
+      editRequestModal.querySelector("[status-field]").value =
+        btn.dataset.status;
+      editRequestModal.querySelector("[response-field]").value =
+        btn.dataset.response;
+      editRequestModal.querySelector("[response-image-field]").src =
+        btn.dataset.responseImage;
+      editRequestModal.querySelector("form").dataset.requestId = btn.dataset.id;
       openModal(editRequestModal);
     });
   });
