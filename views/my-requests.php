@@ -68,7 +68,7 @@ use app\models\Session;
                       </div>
                       <div class="wrapper__secondary-actions">
                         <button class="secondary-actions__more">Подробнее</button>
-                        <time class="secondary-actions__date">12 января 2024</time>
+                        <time class="secondary-actions__date"><?= $request->created_at_formatted ?></time>
                       </div>
                     </div>
                   </li>
@@ -87,7 +87,7 @@ use app\models\Session;
                       </div>
                       <div class="wrapper__secondary-actions">
                         <button class="secondary-actions__more">Подробнее</button>
-                        <time class="secondary-actions__date">12 января 2024</time>
+                        <time class="secondary-actions__date"><?= $request->created_at_formatted ?></time>
                       </div>
                     </div>
                   </li>
@@ -106,7 +106,7 @@ use app\models\Session;
                       </div>
                       <div class="wrapper__secondary-actions">
                         <button class="secondary-actions__more">Подробнее</button>
-                        <time class="secondary-actions__date">12 января 2024</time>
+                        <time class="secondary-actions__date"><?= $request->created_at_formatted ?></time>
                       </div>
                     </div>
                   </li>

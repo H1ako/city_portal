@@ -5,6 +5,7 @@ use app\models\Session;
 
 global $SITE_URL, $session;
 
+$requests = Request::where('status', '=', 'done')->get()->take(6);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,14 +42,14 @@ global $SITE_URL, $session;
         <div class="content__right">
           <div class="right__requests-counter">
             <ul class="requests-counter__num-tabs">
-              <?php 
+              <?php
               $requestsAmount = Request::where('status', '=', 'done')->count();
               $stringAmount = (string)$requestsAmount;
               for ($i = 0; $i < strlen($stringAmount); $i++): ?>
-              <li class="num-tabs__item">
-                <div class="delimeter"></div>
-                <span><?= $stringAmount[$i] ?></span>
-              </li>
+                <li class="num-tabs__item">
+                  <div class="delimeter"></div>
+                  <span><?= $stringAmount[$i] ?></span>
+                </li>
               <?php endfor; ?>
             </ul>
             <div class="requests-counter__description">
@@ -63,91 +64,23 @@ global $SITE_URL, $session;
       <div class="content">
         <h2 class="content__main-title">Новости</h2>
         <ul class="content__list">
-          <li class="list__item">
-            <img src="<?= Router::getAssets('/images/news.png') ?>" alt="" class="item__img" />
-            <div class="item__wrapper">
-              <ul class="wrapper__tags">
-                <li class="tags__item">Общество</li>
-                <li class="tags__item">Погода</li>
-              </ul>
-              <h3 class="wrapper__title">
-                Февраль в Москве будет на 3–4 градуса теплее нормы
-              </h3>
-
-              <div class="wrapper__actions">
-                <button class="actions__more">Подробнее</button>
-                <time class="actions__date">12 января 2024</time>
+          <?php foreach ($requests as $request): ?>
+            <li class="list__item">
+              <img src="<?= Router::getRoute($request->response_image) ?>" alt="" class="item__img" />
+              <div class="item__wrapper">
+                <ul class="wrapper__tags">
+                  <li class="tags__item"><?= $request->category ? $request->category->title : '' ?></li>
+                </ul>
+                <h3 class="wrapper__title">
+                  <?= $request->response ?>
+                </h3>
+                <div class="wrapper__actions">
+                  <button class="actions__more">Подробнее</button>
+                  <time class="actions__date"><?= $request->created_at_formatted ?></time>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="list__item">
-            <img src="<?= Router::getAssets('/images/news.png') ?>" alt="" class="item__img" />
-            <div class="item__wrapper">
-              <ul class="wrapper__tags">
-                <li class="tags__item">Общество</li>
-                <li class="tags__item">Погода</li>
-              </ul>
-              <h3 class="wrapper__title">
-                Февраль в Москве будет на 3–4 градуса теплее нормы
-              </h3>
-
-              <div class="wrapper__actions">
-                <button class="actions__more">Подробнее</button>
-                <time class="actions__date">12 января 2024</time>
-              </div>
-            </div>
-          </li>
-          <li class="list__item">
-            <img src="<?= Router::getAssets('/images/news.png') ?>" alt="" class="item__img" />
-            <div class="item__wrapper">
-              <ul class="wrapper__tags">
-                <li class="tags__item">Общество</li>
-                <li class="tags__item">Погода</li>
-              </ul>
-              <h3 class="wrapper__title">
-                Февраль в Москве будет на 3–4 градуса теплее нормы
-              </h3>
-
-              <div class="wrapper__actions">
-                <button class="actions__more">Подробнее</button>
-                <time class="actions__date">12 января 2024</time>
-              </div>
-            </div>
-          </li>
-          <li class="list__item">
-            <img src="<?= Router::getAssets('/images/news.png') ?>" alt="" class="item__img" />
-            <div class="item__wrapper">
-              <ul class="wrapper__tags">
-                <li class="tags__item">Общество</li>
-                <li class="tags__item">Погода</li>
-              </ul>
-              <h3 class="wrapper__title">
-                Февраль в Москве будет на 3–4 градуса теплее нормы
-              </h3>
-
-              <div class="wrapper__actions">
-                <button class="actions__more">Подробнее</button>
-                <time class="actions__date">12 января 2024</time>
-              </div>
-            </div>
-          </li>
-          <li class="list__item">
-            <img src="<?= Router::getAssets('/images/news.png') ?>" alt="" class="item__img" />
-            <div class="item__wrapper">
-              <ul class="wrapper__tags">
-                <li class="tags__item">Общество</li>
-                <li class="tags__item">Погода</li>
-              </ul>
-              <h3 class="wrapper__title">
-                Февраль в Москве будет на 3–4 градуса теплее нормы
-              </h3>
-
-              <div class="wrapper__actions">
-                <button class="actions__more">Подробнее</button>
-                <time class="actions__date">12 января 2024</time>
-              </div>
-            </div>
-          </li>
+            </li>
+          <?php endforeach; ?>
         </ul>
         <button class="news__all-btn">Все новости</button>
       </div>

@@ -102,7 +102,7 @@ $users = User::where('role', '=', 'user')->get();
 
                   <div class="wrapper__secondary-actions">
                     <button class="secondary-actions__more">Подробнее</button>
-                    <time class="secondary-actions__date">12 января 2024</time>
+                    <time class="secondary-actions__date"><?= $request->created_at_formatted ?></time>
                     <button change-cat class="secondary-actions__cat">
                       <?= $request->category ? $request->category->title : '' ?>
                     </button>
@@ -128,7 +128,7 @@ $users = User::where('role', '=', 'user')->get();
 
                   <div class="wrapper__secondary-actions">
                     <button class="secondary-actions__more">Подробнее</button>
-                    <time class="secondary-actions__date">12 января 2024</time>
+                    <time class="secondary-actions__date"><?= $request->created_at_formatted ?></time>
                     <button change-cat class="secondary-actions__cat">
                       <?= $request->category ? $request->category->title : '' ?>
                     </button>
@@ -154,7 +154,7 @@ $users = User::where('role', '=', 'user')->get();
 
                   <div class="wrapper__secondary-actions">
                     <button class="secondary-actions__more">Подробнее</button>
-                    <time class="secondary-actions__date">12 января 2024</time>
+                    <time class="secondary-actions__date"><?= $request->created_at_formatted ?></time>
                     <button change-cat class="secondary-actions__cat">
                       <?= $request->category ? $request->category->title : '' ?>
                     </button>
