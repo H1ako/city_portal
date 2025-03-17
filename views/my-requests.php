@@ -32,7 +32,7 @@ use app\models\Session;
           <div class="right__requests-counter">
             <ul class="requests-counter__num-tabs">
               <?php 
-                $requestsAmount = Request::where('status', '=', 'done')->count();
+                $requestsAmount = Request::where('status', '=', 'done')->get()->count();
                 $stringAmount = (string)$requestsAmount;
                 for ($i = 0; $i < strlen($stringAmount); $i++): ?>
                 <li class="num-tabs__item">
