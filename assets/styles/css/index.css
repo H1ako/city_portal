@@ -342,8 +342,10 @@
   border-radius: 1rem;
 }
 .main-content__news .content__list .list__item .item__img {
-  width: auto;
-  height: 100%;
+  width: 100%;
+  max-width: 40%;
+  border-radius: 1rem;
+  height: 20rem;
 }
 .main-content__news .content__list .list__item .item__wrapper {
   position: relative;

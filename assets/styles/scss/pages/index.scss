@@ -177,8 +177,12 @@
           border-radius: 1rem;
 
           .item__img {
-            width: auto;
-            height: 100%;
+            // width: auto;
+            // height: 100%;
+            width: 100%;
+            max-width: 40%;
+            border-radius: 1rem;
+            height: 20rem;
           }
 
           .item__wrapper {
